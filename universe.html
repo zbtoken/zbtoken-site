@@ -1,0 +1,583 @@
+<!--
+  ZB_TOKEN :: UNIVERSE.html
+  // declassified files: pillars, sentinels, sphere, carriers
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ZB TOKEN :: UNIVERSE</title>
+  <meta name="description" content="The Universe of ZB. Pillars, Sentinels, the Sphere, and the Carriers.">
+  <link rel="stylesheet" href="shared.css">
+  <style>
+    body {
+      background: #000;
+      margin: 0;
+      padding: 0;
+    }
+    .subpage-topbar {
+      position: relative;
+      z-index: 10;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 40px;
+      border-bottom: 1px solid rgba(0, 232, 61, 0.2);
+      font-size: 12px;
+      letter-spacing: 2px;
+      background: rgba(0, 0, 0, 0.85);
+      backdrop-filter: blur(6px);
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+    .subpage-topbar .left { display: flex; gap: 20px; align-items: center; }
+    .subpage-topbar .nav { display: flex; gap: 22px; flex-wrap: wrap; }
+    .subpage-topbar .nav a {
+      color: rgba(0, 232, 61, 0.7);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .subpage-topbar .nav a:hover, .subpage-topbar .nav a.active { color: #00E83D; }
+    .subpage-topbar .nav a.orange-link { color: rgba(255, 140, 26, 0.85); }
+    .subpage-topbar .nav a.orange-link:hover { color: #FF8C1A; }
+
+    .subpage-header {
+      position: relative;
+      z-index: 5;
+      padding: 70px 40px 30px;
+      text-align: center;
+      border-bottom: 1px solid rgba(0, 232, 61, 0.15);
+    }
+    .subpage-label {
+      color: #FF8C1A;
+      font-size: 12px;
+      letter-spacing: 4px;
+      margin-bottom: 14px;
+      opacity: 0.85;
+    }
+    .subpage-title {
+      font-family: 'Arial Black', Impact, sans-serif;
+      font-size: clamp(34px, 6vw, 64px);
+      font-weight: 900;
+      letter-spacing: 4px;
+      color: #fff;
+      margin-bottom: 14px;
+      text-shadow: 0 0 30px rgba(0, 232, 61, 0.4);
+    }
+    .subpage-subtitle {
+      color: rgba(0, 232, 61, 0.65);
+      font-size: 13px;
+      letter-spacing: 2px;
+      font-style: italic;
+    }
+    .subpage-footer {
+      position: relative;
+      z-index: 5;
+      padding: 50px 40px 30px;
+      border-top: 1px solid rgba(0, 232, 61, 0.2);
+      background: rgba(0, 0, 0, 0.7);
+      text-align: center;
+    }
+    .subpage-footer .links {
+      display: flex;
+      justify-content: center;
+      gap: 22px;
+      flex-wrap: wrap;
+      margin-bottom: 18px;
+    }
+    .subpage-footer .links a {
+      color: rgba(0, 232, 61, 0.7);
+      text-decoration: none;
+      font-size: 11px;
+      letter-spacing: 2px;
+    }
+    .subpage-footer .links a:hover { color: #00E83D; }
+    .subpage-footer .back-link {
+      display: inline-block;
+      color: #FF8C1A;
+      text-decoration: none;
+      font-size: 12px;
+      letter-spacing: 3px;
+      border: 1px solid #FF8C1A;
+      padding: 10px 24px;
+      margin-top: 16px;
+      transition: all 0.2s;
+    }
+    .subpage-footer .back-link:hover {
+      background: #FF8C1A;
+      color: #000;
+      box-shadow: 0 0 20px rgba(255, 140, 26, 0.5);
+    }
+    .subpage-footer .signature {
+      color: rgba(0, 232, 61, 0.4);
+      font-size: 10px;
+      letter-spacing: 2px;
+      margin-top: 24px;
+    }
+
+    /* Override section-padding for sub-pages: less top padding since we have own header */
+    section { padding-top: 60px !important; }
+
+    @media (max-width: 768px) {
+      .subpage-topbar { padding: 14px 16px; }
+      .subpage-topbar .nav { gap: 12px; font-size: 10px; }
+      .subpage-header { padding: 50px 20px 25px; }
+    }
+  </style>
+</head>
+<body class="subpage-wrapper">
+
+  <div class="grid-bg"></div>
+  <div class="scanlines"></div>
+
+  <div class="subpage-topbar">
+    <div class="left">
+      <div class="status">
+        <span class="status-dot"></span>
+        <span>UNIVERSE_LOADED</span>
+      </div>
+      <span style="opacity: 0.5;">// ZB_TOKEN :: v1.0</span>
+    </div>
+    <nav class="nav">
+      <a href="index.html">HOME</a>
+      <a href="manifesto.html">MANIFESTO</a>
+      <a href="token.html">TOKEN</a>
+      <a href="universe.html" class="active">UNIVERSE</a>
+      <a href="game.html">GAME</a>
+      <a href="roadmap.html">ROADMAP</a>
+      <a href="faq.html">FAQ</a>
+      <a href="whitepaper.html" class="orange-link">WHITEPAPER</a>
+    </nav>
+  </div>
+
+  <header class="subpage-header">
+    <div class="subpage-label">[ DOCUMENT_03 ]  //  THE_UNIVERSE.archive</div>
+    <h1 class="subpage-title">THE <span style="color:#FF8C1A;">UNIVERSE</span></h1>
+    <div class="subpage-subtitle">// declassified files: pillars, sentinels, sphere, carriers //</div>
+  </header>
+
+  <main>
+<!-- ==================== UNIVERSE SECTION ==================== -->
+<section id="universe" class="universe-section">
+  <div class="universe-stars"></div>
+  <div class="universe-grid-bg"></div>
+
+  <div class="section-header">
+    <div class="section-label">
+      <span class="orange">[ 03 ]</span> &nbsp;//&nbsp; THE_UNIVERSE.archive
+    </div>
+    <div class="section-divider"></div>
+  </div>
+
+  <div class="universe-content">
+    <div class="universe-intro">
+      <div class="archive-stamp">[ DECLASSIFIED ]</div>
+      <h2 class="universe-title">// ARCHIVE_FILES</h2>
+      <p class="universe-desc">
+        Recovered fragments from the alien network. Each artifact serves a function. Each function secures the protocol. Each protocol shapes the galaxy. <span class="hl-orange">Study them well.</span>
+      </p>
+    </div>
+
+    <div class="files-grid">
+
+      <!-- FILE 01 — PILLAR -->
+      <div class="file-card">
+        <div class="file-header">
+          <span class="file-tag green">[ FILE_01 ]</span>
+          <span class="file-status">CLASSIFIED::OPEN</span>
+        </div>
+        <div class="file-visual">
+          <svg viewBox="0 0 240 360" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <linearGradient id="pTopFace" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#4a5a4a"/>
+                <stop offset="100%" stop-color="#1a2a1a"/>
+              </linearGradient>
+              <linearGradient id="pLeftFace" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" stop-color="#2a3a2a"/>
+                <stop offset="100%" stop-color="#0a1a0a"/>
+              </linearGradient>
+              <linearGradient id="pRightFace" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" stop-color="#0a1a0a"/>
+                <stop offset="100%" stop-color="#000"/>
+              </linearGradient>
+              <radialGradient id="pSquareGlow">
+                <stop offset="0%" stop-color="#aaffbb"/>
+                <stop offset="40%" stop-color="#00E83D"/>
+                <stop offset="100%" stop-color="#00E83D" stop-opacity="0"/>
+              </radialGradient>
+              <linearGradient id="pChevron" x1="0%" y1="0%" x2="0%" y2="100%">
+                <stop offset="0%" stop-color="#aaffbb"/>
+                <stop offset="50%" stop-color="#00E83D"/>
+                <stop offset="100%" stop-color="#00b830"/>
+              </linearGradient>
+              <filter id="pBlur" x="-50%" y="-50%" width="200%" height="200%">
+                <feGaussianBlur stdDeviation="3"/>
+              </filter>
+              <filter id="pBlurStrong" x="-50%" y="-50%" width="200%" height="200%">
+                <feGaussianBlur stdDeviation="6"/>
+              </filter>
+            </defs>
+
+            <!-- ===== TOP CUBE ===== -->
+            <!-- Right face (darker) -->
+            <polygon points="170,55 170,115 120,140 120,80" fill="url(#pRightFace)"/>
+            <!-- Left face (lighter) -->
+            <polygon points="70,55 70,115 120,140 120,80" fill="url(#pLeftFace)"/>
+            <!-- Top face (lightest) -->
+            <polygon points="70,55 120,30 170,55 120,80" fill="url(#pTopFace)"/>
+
+            <!-- Surface details on top face -->
+            <line x1="80" y1="60" x2="115" y2="42" stroke="#0a3a0a" stroke-width="0.5" opacity="0.6"/>
+            <line x1="160" y1="60" x2="125" y2="42" stroke="#0a3a0a" stroke-width="0.5" opacity="0.6"/>
+            <line x1="120" y1="80" x2="120" y2="35" stroke="#0a3a0a" stroke-width="0.5" opacity="0.4"/>
+
+            <!-- Glowing square on top -->
+            <polygon points="105,55 120,47 135,55 120,63" fill="url(#pSquareGlow)" filter="url(#pBlurStrong)"/>
+            <polygon points="108,55 120,49 132,55 120,61" fill="url(#pSquareGlow)" filter="url(#pBlur)"/>
+            <polygon points="110,55 120,50 130,55 120,60" fill="#00E83D"/>
+            <polygon points="113,55 120,52 127,55 120,58" fill="#aaffbb"/>
+
+            <!-- Side details (vertical lines) -->
+            <line x1="85" y1="65" x2="85" y2="115" stroke="#0a3a0a" stroke-width="0.5" opacity="0.5"/>
+            <line x1="100" y1="73" x2="100" y2="125" stroke="#0a3a0a" stroke-width="0.5" opacity="0.5"/>
+            <line x1="155" y1="65" x2="155" y2="115" stroke="#000" stroke-width="0.5" opacity="0.5"/>
+            <line x1="140" y1="73" x2="140" y2="125" stroke="#000" stroke-width="0.5" opacity="0.5"/>
+
+            <!-- ===== FLOATING CHEVRONS ===== -->
+            <!-- Chevron 1 (top, brightest) -->
+            <g filter="url(#pBlurStrong)" opacity="0.6">
+              <polygon points="50,160 120,180 190,160 120,200" fill="#00E83D"/>
+            </g>
+            <polygon points="50,160 120,180 190,160 120,200" fill="url(#pChevron)"/>
+            <polygon points="60,162 120,178 180,162 120,194" fill="#00E83D" opacity="0.4"/>
+
+            <!-- Chevron 2 (middle) -->
+            <g filter="url(#pBlur)" opacity="0.5">
+              <polygon points="50,180 120,200 190,180 120,220" fill="#00E83D"/>
+            </g>
+            <polygon points="50,180 120,200 190,180 120,220" fill="url(#pChevron)" opacity="0.85"/>
+
+            <!-- Chevron 3 (bottom, dimmer) -->
+            <g filter="url(#pBlur)" opacity="0.3">
+              <polygon points="50,200 120,220 190,200 120,240" fill="#00E83D"/>
+            </g>
+            <polygon points="50,200 120,220 190,200 120,240" fill="url(#pChevron)" opacity="0.65"/>
+
+            <!-- ===== BASE CUBE (slightly bigger and same isometric style) ===== -->
+            <!-- Right face -->
+            <polygon points="190,275 190,325 120,355 120,300" fill="url(#pRightFace)"/>
+            <!-- Left face -->
+            <polygon points="50,275 50,325 120,355 120,300" fill="url(#pLeftFace)"/>
+            <!-- Top face -->
+            <polygon points="50,275 120,250 190,275 120,300" fill="url(#pTopFace)"/>
+
+            <!-- Top edge details -->
+            <line x1="65" y1="280" x2="115" y2="262" stroke="#0a3a0a" stroke-width="0.5" opacity="0.6"/>
+            <line x1="175" y1="280" x2="125" y2="262" stroke="#0a3a0a" stroke-width="0.5" opacity="0.6"/>
+
+            <!-- Big glowing square on base -->
+            <polygon points="100,275 120,267 140,275 120,283" fill="url(#pSquareGlow)" filter="url(#pBlurStrong)"/>
+            <polygon points="103,275 120,268 137,275 120,282" fill="url(#pSquareGlow)" filter="url(#pBlur)"/>
+            <polygon points="105,275 120,269 135,275 120,281" fill="#00E83D"/>
+            <polygon points="108,275 120,271 132,275 120,279" fill="#aaffbb"/>
+
+            <!-- Side panel details on base -->
+            <line x1="65" y1="290" x2="65" y2="320" stroke="#0a3a0a" stroke-width="0.5" opacity="0.5"/>
+            <line x1="85" y1="298" x2="85" y2="335" stroke="#0a3a0a" stroke-width="0.5" opacity="0.5"/>
+            <line x1="100" y1="305" x2="100" y2="345" stroke="#0a3a0a" stroke-width="0.5" opacity="0.5"/>
+            <rect x="55" y="295" width="3" height="3" fill="#00E83D" opacity="0.4"/>
+            <rect x="75" y="305" width="3" height="3" fill="#00E83D" opacity="0.4"/>
+            <rect x="170" y="295" width="3" height="3" fill="#00E83D" opacity="0.3"/>
+            <rect x="160" y="310" width="3" height="3" fill="#00E83D" opacity="0.3"/>
+          </svg>
+        </div>
+        <div class="file-body">
+          <div class="file-codename">// PILLAR.node</div>
+          <h3 class="file-name">PILLAR</h3>
+          <div class="file-tagline">"The Backbone of the Network"</div>
+          <div class="file-specs">
+            <div class="file-spec-row"><span class="dim">CLASS:</span><span class="hl-green">VALIDATOR / PRIMARY</span></div>
+            <div class="file-spec-row"><span class="dim">COLLATERAL:</span><span class="hl-orange">15,000 ZNN + 150,000 QSR</span></div>
+            <div class="file-spec-row"><span class="dim">FUNCTION:</span><span>Produce & validate momentums</span></div>
+            <div class="file-spec-row"><span class="dim">REWARDS:</span><span class="hl-green">50% of daily ZNN</span></div>
+          </div>
+          <div class="file-lore">
+            <span class="lore-label">// transmission:</span>
+            "They stand eternal, anchoring the network through skin in the game. To raise a Pillar is to commit. To commit is to govern. To govern is to write the future of the protocol."
+          </div>
+        </div>
+      </div>
+
+      <!-- FILE 02 — SENTINEL -->
+      <div class="file-card">
+        <div class="file-header">
+          <span class="file-tag green">[ FILE_02 ]</span>
+          <span class="file-status">CLASSIFIED::OPEN</span>
+        </div>
+        <div class="file-visual">
+          <svg viewBox="0 0 320 240" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <linearGradient id="senBody" x1="0%" y1="0%" x2="0%" y2="100%">
+                <stop offset="0%" stop-color="#2a3a2a"/>
+                <stop offset="100%" stop-color="#0a1a0a"/>
+              </linearGradient>
+              <linearGradient id="senPanel" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#0a2a0a"/>
+                <stop offset="100%" stop-color="#0a1a0a"/>
+              </linearGradient>
+              <radialGradient id="senDish">
+                <stop offset="0%" stop-color="#7fff9f"/>
+                <stop offset="40%" stop-color="#00E83D"/>
+                <stop offset="100%" stop-color="#00ff44" stop-opacity="0"/>
+              </radialGradient>
+              <filter id="sglow"><feGaussianBlur stdDeviation="2.5"/></filter>
+            </defs>
+
+            <!-- Left wing solar panel -->
+            <polygon points="10,90 130,75 130,115 15,125" fill="url(#senPanel)" stroke="#0a3a0a" stroke-width="1"/>
+            <!-- Cells on left wing -->
+            <rect x="22" y="86" width="20" height="13" fill="#00E83D" opacity="0.9"/>
+            <rect x="44" y="87" width="20" height="13" fill="#00E83D" opacity="0.75"/>
+            <rect x="66" y="88" width="20" height="13" fill="#00E83D" opacity="0.85"/>
+            <rect x="88" y="89" width="20" height="13" fill="#00E83D" opacity="0.7"/>
+            <rect x="22" y="103" width="20" height="13" fill="#00E83D" opacity="0.65"/>
+            <rect x="44" y="104" width="20" height="13" fill="#00E83D" opacity="0.8"/>
+            <rect x="66" y="105" width="20" height="13" fill="#00E83D" opacity="0.6"/>
+            <rect x="88" y="106" width="20" height="13" fill="#00E83D" opacity="0.85"/>
+
+            <!-- Right wing solar panel -->
+            <polygon points="190,75 310,90 305,125 190,115" fill="url(#senPanel)" stroke="#0a3a0a" stroke-width="1"/>
+            <!-- Cells on right wing -->
+            <rect x="200" y="86" width="20" height="13" fill="#00E83D" opacity="0.7"/>
+            <rect x="222" y="87" width="20" height="13" fill="#00E83D" opacity="0.9"/>
+            <rect x="244" y="88" width="20" height="13" fill="#00E83D" opacity="0.65"/>
+            <rect x="266" y="89" width="20" height="13" fill="#00E83D" opacity="0.85"/>
+            <rect x="200" y="103" width="20" height="13" fill="#00E83D" opacity="0.85"/>
+            <rect x="222" y="104" width="20" height="13" fill="#00E83D" opacity="0.7"/>
+            <rect x="244" y="105" width="20" height="13" fill="#00E83D" opacity="0.9"/>
+            <rect x="266" y="106" width="20" height="13" fill="#00E83D" opacity="0.6"/>
+
+            <!-- Top antenna mast -->
+            <rect x="148" y="20" width="14" height="80" fill="url(#senBody)" stroke="#0a1a0a" stroke-width="1"/>
+            <rect x="151" y="35" width="8" height="14" fill="#00E83D" opacity="0.9" filter="url(#sglow)"/>
+            <rect x="151" y="35" width="8" height="14" fill="#00E83D"/>
+            <rect x="151" y="55" width="8" height="6" fill="#00E83D" opacity="0.6"/>
+
+            <!-- Main body / hull -->
+            <rect x="125" y="80" width="60" height="80" fill="url(#senBody)" stroke="#0a1a0a" stroke-width="1.5"/>
+            <rect x="130" y="85" width="50" height="20" fill="#0a2a0a" stroke="#0a3a0a" stroke-width="0.5"/>
+            <circle cx="155" cy="95" r="3" fill="#00E83D"/>
+            <rect x="135" y="115" width="40" height="3" fill="#00E83D" opacity="0.5"/>
+            <rect x="135" y="125" width="30" height="3" fill="#00E83D" opacity="0.4"/>
+            <rect x="135" y="135" width="35" height="3" fill="#00E83D" opacity="0.5"/>
+            <!-- Side door -->
+            <rect x="183" y="100" width="4" height="20" fill="#00E83D" opacity="0.8"/>
+
+            <!-- Communication dish (right side) -->
+            <ellipse cx="240" cy="150" rx="42" ry="46" fill="url(#senBody)" stroke="#0a3a0a" stroke-width="1.5"/>
+            <ellipse cx="240" cy="150" rx="38" ry="42" fill="#0a1a0a" stroke="#0a2a0a" stroke-width="0.5"/>
+            <!-- Dish glow center -->
+            <circle cx="240" cy="150" r="28" fill="url(#senDish)" filter="url(#sglow)"/>
+            <circle cx="240" cy="150" r="22" fill="#00E83D" opacity="0.9"/>
+            <circle cx="240" cy="150" r="14" fill="#00ff44"/>
+            <circle cx="240" cy="150" r="4" fill="#fff"/>
+            <!-- Dish target indicator -->
+            <line x1="240" y1="120" x2="240" y2="125" stroke="#fff" stroke-width="0.5" opacity="0.6"/>
+
+            <!-- Connecting strut to dish -->
+            <rect x="180" y="145" width="20" height="6" fill="url(#senBody)" stroke="#0a1a0a" stroke-width="0.5"/>
+          </svg>
+        </div>
+        <div class="file-body">
+          <div class="file-codename">// SENTINEL.node</div>
+          <h3 class="file-name">SENTINEL</h3>
+          <div class="file-tagline">"The Watchers in the Void"</div>
+          <div class="file-specs">
+            <div class="file-spec-row"><span class="dim">CLASS:</span><span class="hl-green">ARCHIVAL / SECONDARY</span></div>
+            <div class="file-spec-row"><span class="dim">COLLATERAL:</span><span class="hl-orange">5,000 ZNN + 50,000 QSR</span></div>
+            <div class="file-spec-row"><span class="dim">FUNCTION:</span><span>Store & relay dual-ledger state</span></div>
+            <div class="file-spec-row"><span class="dim">REWARDS:</span><span class="hl-green">25% QSR + 13% ZNN daily</span></div>
+          </div>
+          <div class="file-lore">
+            <span class="lore-label">// transmission:</span>
+            "Before any signal reaches a Pillar, a Sentinel sees it first. They store the truth. They relay the data. They guard the gates between worlds. Without them, the network is blind."
+          </div>
+        </div>
+      </div>
+
+      <!-- FILE 03 — SPHERE -->
+      <div class="file-card">
+        <div class="file-header">
+          <span class="file-tag orange">[ FILE_03 ]</span>
+          <span class="file-status">CLASSIFIED::OPEN</span>
+        </div>
+        <div class="file-visual sphere-visual">
+          <svg viewBox="0 0 280 280" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <radialGradient id="sphSurface" cx="35%" cy="30%">
+                <stop offset="0%" stop-color="#3a3a3a"/>
+                <stop offset="20%" stop-color="#2a2a2a"/>
+                <stop offset="60%" stop-color="#0a0a0a"/>
+                <stop offset="100%" stop-color="#000"/>
+              </radialGradient>
+              <radialGradient id="sphCircuit" cx="40%" cy="50%">
+                <stop offset="0%" stop-color="#1a1a1a"/>
+                <stop offset="100%" stop-color="#050505"/>
+              </radialGradient>
+              <radialGradient id="sphRing" cx="50%" cy="50%">
+                <stop offset="0%" stop-color="#7fff9f"/>
+                <stop offset="50%" stop-color="#00E83D"/>
+                <stop offset="100%" stop-color="#00ff44"/>
+              </radialGradient>
+              <radialGradient id="sphCore">
+                <stop offset="0%" stop-color="#FF8C1A"/>
+                <stop offset="30%" stop-color="#FF8C1A"/>
+                <stop offset="60%" stop-color="#00E83D"/>
+                <stop offset="100%" stop-color="#00E83D" stop-opacity="0"/>
+              </radialGradient>
+              <filter id="sphereGlow"><feGaussianBlur stdDeviation="3"/></filter>
+              <pattern id="circuitPattern" x="0" y="0" width="30" height="30" patternUnits="userSpaceOnUse">
+                <path d="M 0 15 L 10 15 L 10 5 L 20 5 M 20 15 L 30 15 M 15 15 L 15 25 L 25 25" fill="none" stroke="#1a4a1a" stroke-width="0.5" opacity="0.5"/>
+                <circle cx="10" cy="15" r="1" fill="#00E83D" opacity="0.4"/>
+                <circle cx="20" cy="5" r="1" fill="#00E83D" opacity="0.3"/>
+              </pattern>
+            </defs>
+
+            <!-- Main sphere body -->
+            <circle cx="140" cy="140" r="115" fill="url(#sphSurface)" stroke="#0a0a0a" stroke-width="1"/>
+
+            <!-- Circuit pattern overlay (subtle) -->
+            <circle cx="140" cy="140" r="115" fill="url(#circuitPattern)" opacity="0.4"/>
+
+            <!-- Inner sphere highlight (top-left light) -->
+            <ellipse cx="115" cy="115" rx="40" ry="35" fill="#1a1a1a" opacity="0.4"/>
+
+            <!-- The opening / cut showing inside -->
+            <path d="M 60 175 Q 50 140 70 100 Q 110 80 150 95 Q 165 130 145 165 Q 100 185 60 175 Z"
+                  fill="url(#sphCircuit)" stroke="#0a0a0a" stroke-width="1"/>
+
+            <!-- Inner detail panels (circuit-like) -->
+            <g opacity="0.6">
+              <line x1="70" y1="120" x2="105" y2="120" stroke="#1a4a1a" stroke-width="0.6"/>
+              <line x1="70" y1="135" x2="100" y2="135" stroke="#1a4a1a" stroke-width="0.6"/>
+              <line x1="80" y1="150" x2="120" y2="150" stroke="#1a4a1a" stroke-width="0.6"/>
+              <rect x="78" y="115" width="3" height="3" fill="#00E83D" opacity="0.5"/>
+              <rect x="95" y="130" width="3" height="3" fill="#00E83D" opacity="0.5"/>
+              <rect x="105" y="148" width="3" height="3" fill="#00E83D" opacity="0.5"/>
+            </g>
+
+            <!-- The big eye/ring (target focus) -->
+            <ellipse cx="105" cy="160" rx="35" ry="35" fill="#0a0a0a" stroke="#0a3a0a" stroke-width="1"/>
+            <!-- Outer ring glow -->
+            <circle cx="105" cy="160" r="30" fill="none" stroke="url(#sphRing)" stroke-width="2.5" filter="url(#sphereGlow)"/>
+            <circle cx="105" cy="160" r="30" fill="none" stroke="#00E83D" stroke-width="2"/>
+            <!-- Mid green disc -->
+            <circle cx="105" cy="160" r="22" fill="#00E83D" opacity="0.95"/>
+            <circle cx="105" cy="160" r="22" fill="url(#sphCore)"/>
+            <!-- Center orange dot (Bitcoin) -->
+            <circle cx="105" cy="160" r="9" fill="#FF8C1A"/>
+            <circle cx="105" cy="160" r="9" fill="#FF8C1A" filter="url(#sphereGlow)" opacity="0.8"/>
+
+            <!-- Outer subtle rim -->
+            <circle cx="140" cy="140" r="115" fill="none" stroke="#0a3a0a" stroke-width="0.5" opacity="0.5"/>
+
+            <!-- Tech lines around sphere -->
+            <g opacity="0.3">
+              <line x1="20" y1="90" x2="40" y2="100" stroke="#00E83D" stroke-width="0.5"/>
+              <line x1="20" y1="110" x2="35" y2="115" stroke="#00E83D" stroke-width="0.5"/>
+              <line x1="240" y1="90" x2="260" y2="100" stroke="#FF8C1A" stroke-width="0.5"/>
+              <line x1="245" y1="110" x2="260" y2="115" stroke="#FF8C1A" stroke-width="0.5"/>
+            </g>
+          </svg>
+        </div>
+        <div class="file-body">
+          <div class="file-codename">// SPHERE.entity</div>
+          <h3 class="file-name">THE SPHERE</h3>
+          <div class="file-tagline">"The All-Seeing Core"</div>
+          <div class="file-specs">
+            <div class="file-spec-row"><span class="dim">CLASS:</span><span class="hl-orange">ENIGMA / UNCLASSIFIED</span></div>
+            <div class="file-spec-row"><span class="dim">ORIGIN:</span><span class="hl-green">UNKNOWN</span></div>
+            <div class="file-spec-row"><span class="dim">FUNCTION:</span><span>Observer of all transactions</span></div>
+            <div class="file-spec-row"><span class="dim">SIGNAL:</span><span class="hl-orange">DUAL-FREQUENCY</span></div>
+          </div>
+          <div class="file-lore">
+            <span class="lore-label">// transmission:</span>
+            "It sees the orange chain. It sees the green chain. It sees the bridge between them. The Sphere does not vote. The Sphere does not validate. It only watches, and remembers everything."
+          </div>
+        </div>
+      </div>
+
+      <!-- FILE 04 — CARRIERS -->
+      <div class="file-card">
+        <div class="file-header">
+          <span class="file-tag orange">[ FILE_04 ]</span>
+          <span class="file-status">CLASSIFIED::OPEN</span>
+        </div>
+        <div class="file-visual carriers-visual">
+          <img src="images/zbtokenlogo-transparent.png" alt="The Carriers - Twin Aliens of ZB" class="carriers-logo-img" />
+        </div>
+        <div class="file-body">
+          <div class="file-codename">// ZB.carriers</div>
+          <h3 class="file-name">THE CARRIERS</h3>
+          <div class="file-tagline">"The Twin Aliens of ZB"</div>
+          <div class="file-specs">
+            <div class="file-spec-row"><span class="dim">CLASS:</span><span class="hl-orange">SYMBIOTIC PAIR</span></div>
+            <div class="file-spec-row"><span class="dim">FACTION_A:</span><span class="hl-green">ZENON / GREEN</span></div>
+            <div class="file-spec-row"><span class="dim">FACTION_B:</span><span class="hl-orange">BITCOIN / ORANGE</span></div>
+            <div class="file-spec-row"><span class="dim">STATUS:</span><span class="hl-green">ALLIED / ETERNAL</span></div>
+          </div>
+          <div class="file-lore">
+            <span class="lore-label">// transmission:</span>
+            "Two species. Two protocols. One mission. They were never meant to meet, yet here they are, fist-bumping across the void. The orange one carries hard money. The green one carries free transactions. Together, they carry ZB."
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ==================== GAME SECTION ==================== -->
+
+  </main>
+
+  <footer class="subpage-footer">
+    <div class="links">
+      <a href="https://x.com/ZBTOKENOfficial" target="_blank" rel="noopener">X</a>
+      <a href="https://t.me/ZBTOKENOfficial" target="_blank" rel="noopener">TELEGRAM</a>
+      <a href="https://zenon.tools/tokens/zts13sl7jccgrflw7u9rfsvzp7" target="_blank" rel="noopener">EXPLORER</a>
+      <a href="https://zenon.network" target="_blank" rel="noopener">ZENON</a>
+    </div>
+    <a href="index.html" class="back-link">← RETURN_TO_HUB</a>
+    <div class="signature">// extradata::6a4b...c0de, those who know, know.</div>
+  </footer>
+
+  <script>
+    // Copy contract functions for token page (and others if needed)
+    function copyContract() {
+      var addr = 'zts13sl7jccgrflw7u9rfsvzp7';
+      var copyText = document.getElementById('copy-text');
+      if (copyText && navigator.clipboard) {
+        navigator.clipboard.writeText(addr).then(function() {
+          copyText.textContent = 'COPIED ✓';
+          setTimeout(function() { copyText.textContent = 'COPY'; }, 2000);
+        });
+      }
+    }
+    function copyFinalContract() {
+      var addr = 'zts13sl7jccgrflw7u9rfsvzp7';
+      var copyText = document.getElementById('final-copy-text');
+      if (copyText && navigator.clipboard) {
+        navigator.clipboard.writeText(addr).then(function() {
+          copyText.textContent = 'COPIED ✓';
+          setTimeout(function() { copyText.textContent = 'COPY_CONTRACT'; }, 2000);
+        });
+      }
+    }
+  </script>
+
+<script src="effects.js"></script>
+</body>
+</html>

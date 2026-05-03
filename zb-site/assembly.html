@@ -1,0 +1,495 @@
+<!--
+  ZB_TOKEN :: ASSEMBLY.html
+  // the community governance framework
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ZB TOKEN :: ASSEMBLY</title>
+  <meta name="description" content="ZB Assembly. The community governance framework. Proposals, votes, treasury. By the community. For the community.">
+  <link rel="stylesheet" href="shared.css">
+  <style>
+    body { background: #000; margin: 0; padding: 0; }
+
+    .subpage-topbar {
+      position: relative; z-index: 10;
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 20px 40px;
+      border-bottom: 1px solid rgba(0, 232, 61, 0.2);
+      font-size: 12px; letter-spacing: 2px;
+      background: rgba(0, 0, 0, 0.85); backdrop-filter: blur(6px);
+      flex-wrap: wrap; gap: 12px;
+    }
+    .subpage-topbar .left { display: flex; gap: 20px; align-items: center; }
+    .subpage-topbar .nav { display: flex; gap: 22px; flex-wrap: wrap; }
+    .subpage-topbar .nav a { color: rgba(0, 232, 61, 0.7); text-decoration: none; transition: color 0.2s; }
+    .subpage-topbar .nav a:hover, .subpage-topbar .nav a.active { color: #00E83D; }
+    .subpage-topbar .nav a.orange-link { color: rgba(255, 140, 26, 0.85); }
+    .subpage-topbar .nav a.orange-link:hover { color: #FF8C1A; }
+
+    .subpage-header {
+      position: relative; z-index: 5;
+      padding: 70px 40px 30px;
+      text-align: center;
+      border-bottom: 1px solid rgba(0, 232, 61, 0.15);
+    }
+    .subpage-label { color: #FF8C1A; font-size: 12px; letter-spacing: 4px; margin-bottom: 14px; opacity: 0.85; }
+    .subpage-title {
+      font-family: 'Arial Black', Impact, sans-serif;
+      font-size: clamp(34px, 6vw, 64px);
+      font-weight: 900; letter-spacing: 4px;
+      color: #fff; margin-bottom: 14px;
+      text-shadow: 0 0 30px rgba(0, 232, 61, 0.4);
+    }
+    .subpage-subtitle { color: rgba(0, 232, 61, 0.65); font-size: 13px; letter-spacing: 2px; font-style: italic; }
+
+    .assembly-section {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 60px 24px;
+    }
+
+    .intro-block {
+      background: rgba(0, 0, 0, 0.5);
+      border: 1px solid rgba(0, 232, 61, 0.3);
+      padding: 30px;
+      margin-bottom: 50px;
+    }
+    .intro-block .label {
+      color: rgba(255, 140, 26, 0.85);
+      font-size: 11px;
+      letter-spacing: 5px;
+      margin-bottom: 16px;
+    }
+    .intro-block p {
+      color: rgba(0, 232, 61, 0.85);
+      font-size: 14px;
+      line-height: 1.8;
+      margin-bottom: 14px;
+    }
+    .intro-block .highlight {
+      color: #FF8C1A;
+      font-weight: bold;
+    }
+
+    .section-h {
+      color: rgba(0, 232, 61, 0.85);
+      font-size: 14px;
+      letter-spacing: 4px;
+      margin: 50px 0 20px;
+      padding-bottom: 12px;
+      border-bottom: 1px dashed rgba(0, 232, 61, 0.3);
+    }
+
+    .principles {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 18px;
+      margin-bottom: 50px;
+    }
+    .principle {
+      background: rgba(0, 232, 61, 0.04);
+      border: 1px solid rgba(0, 232, 61, 0.25);
+      padding: 22px;
+    }
+    .principle .num {
+      color: #FF8C1A;
+      font-size: 11px;
+      letter-spacing: 3px;
+      margin-bottom: 10px;
+    }
+    .principle .title {
+      color: #fff;
+      font-size: 14px;
+      letter-spacing: 2px;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+    .principle .desc {
+      color: rgba(255, 255, 255, 0.6);
+      font-size: 12px;
+      line-height: 1.7;
+    }
+
+    .phases {
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+      margin-bottom: 50px;
+    }
+    .phase-row {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 20px;
+      align-items: start;
+      padding: 22px;
+      background: rgba(0, 0, 0, 0.4);
+      border-left: 3px solid rgba(0, 232, 61, 0.5);
+    }
+    .phase-row.orange { border-left-color: rgba(255, 140, 26, 0.6); }
+    .phase-row .marker {
+      color: #00E83D;
+      font-size: 18px;
+      letter-spacing: 3px;
+      font-weight: bold;
+      min-width: 80px;
+    }
+    .phase-row.orange .marker { color: #FF8C1A; }
+    .phase-row .content h4 {
+      color: #fff;
+      font-size: 14px;
+      letter-spacing: 2px;
+      margin: 0 0 8px;
+    }
+    .phase-row .content p {
+      color: rgba(255, 255, 255, 0.65);
+      font-size: 12px;
+      line-height: 1.7;
+      margin: 0;
+    }
+
+    .proposal-types {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 14px;
+      margin-bottom: 50px;
+    }
+    .proposal-type {
+      padding: 20px;
+      background: rgba(255, 140, 26, 0.04);
+      border: 1px solid rgba(255, 140, 26, 0.25);
+    }
+    .proposal-type .icon { font-size: 24px; margin-bottom: 10px; }
+    .proposal-type .name {
+      color: #fff;
+      font-size: 12px;
+      letter-spacing: 2px;
+      font-weight: bold;
+      margin-bottom: 8px;
+    }
+    .proposal-type .desc {
+      color: rgba(255, 255, 255, 0.55);
+      font-size: 11px;
+      line-height: 1.6;
+    }
+
+    .placeholder-box {
+      background: rgba(0, 0, 0, 0.5);
+      border: 1px dashed rgba(0, 232, 61, 0.4);
+      padding: 30px;
+      text-align: center;
+      margin-bottom: 50px;
+    }
+    .placeholder-box .label {
+      color: rgba(255, 140, 26, 0.7);
+      font-size: 10px;
+      letter-spacing: 4px;
+      margin-bottom: 14px;
+    }
+    .placeholder-box .msg {
+      color: rgba(0, 232, 61, 0.85);
+      font-size: 13px;
+      line-height: 1.8;
+    }
+
+    .cta-box {
+      background: rgba(255, 140, 26, 0.05);
+      border: 1px solid rgba(255, 140, 26, 0.4);
+      padding: 30px;
+      text-align: center;
+    }
+    .cta-box .title {
+      color: #fff;
+      font-size: 16px;
+      letter-spacing: 3px;
+      font-weight: bold;
+      margin-bottom: 14px;
+    }
+    .cta-box .desc {
+      color: rgba(255, 255, 255, 0.6);
+      font-size: 12px;
+      line-height: 1.7;
+      margin-bottom: 22px;
+    }
+    .cta-box .links {
+      display: flex;
+      gap: 14px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .cta-box .links a {
+      color: #FF8C1A;
+      text-decoration: none;
+      font-size: 11px;
+      letter-spacing: 3px;
+      border: 1px solid #FF8C1A;
+      padding: 10px 22px;
+      transition: all 0.2s;
+    }
+    .cta-box .links a:hover {
+      background: #FF8C1A;
+      color: #000;
+      box-shadow: 0 0 20px rgba(255, 140, 26, 0.5);
+    }
+
+    .subpage-footer {
+      position: relative; z-index: 5;
+      padding: 50px 40px 30px;
+      border-top: 1px solid rgba(0, 232, 61, 0.2);
+      background: rgba(0, 0, 0, 0.7);
+      text-align: center;
+    }
+    .subpage-footer .links { display: flex; justify-content: center; gap: 22px; flex-wrap: wrap; margin-bottom: 18px; }
+    .subpage-footer .links a { color: rgba(0, 232, 61, 0.7); text-decoration: none; font-size: 11px; letter-spacing: 2px; }
+    .subpage-footer .links a:hover { color: #00E83D; }
+    .subpage-footer .back-link {
+      display: inline-block; color: #FF8C1A; text-decoration: none;
+      font-size: 12px; letter-spacing: 3px;
+      border: 1px solid #FF8C1A; padding: 10px 24px; margin-top: 16px;
+      transition: all 0.2s;
+    }
+    .subpage-footer .back-link:hover { background: #FF8C1A; color: #000; box-shadow: 0 0 20px rgba(255, 140, 26, 0.5); }
+    .subpage-footer .signature { color: rgba(0, 232, 61, 0.4); font-size: 10px; letter-spacing: 2px; margin-top: 24px; }
+
+    section { padding-top: 60px !important; }
+
+    @media (max-width: 768px) {
+      .subpage-topbar { padding: 14px 16px; }
+      .subpage-topbar .nav { gap: 12px; font-size: 10px; }
+      .subpage-header { padding: 50px 20px 25px; }
+      .phase-row { grid-template-columns: 1fr; }
+    }
+  </style>
+<link rel="stylesheet" href="zb-menu.css">
+</head>
+<body class="subpage-wrapper">
+
+  <div class="grid-bg"></div>
+  <div class="scanlines"></div>
+
+  <div class="subpage-topbar">
+    <div class="left">
+      <div class="status">
+        <span class="status-dot"></span>
+        <span>ASSEMBLY_LOADED</span>
+      </div>
+      <span style="opacity: 0.5;">// ZB_TOKEN :: v1.0</span>
+    </div>
+  </div>
+
+  <header class="subpage-header">
+    <div class="subpage-label">[ DOCUMENT_07 ]  //  THE_ASSEMBLY.protocol</div>
+    <h1 class="subpage-title">THE <span style="color:#FF8C1A;">ASSEMBLY</span></h1>
+    <div class="subpage-subtitle">// community governance framework :: by the holders, for the holders //</div>
+  </header>
+
+  <main>
+
+    <section class="assembly-section">
+
+      <!-- INTRO -->
+      <div class="intro-block">
+        <div class="label">// PROTOCOL_DOCTRINE //</div>
+        <p>
+          <span class="highlight">ZB Assembly</span> is the community governance framework of ZB Token. Inspired by Zenon's <span class="highlight">Accelerator-Z</span>, it allows holders to propose, discuss, and vote on initiatives that shape the future of the protocol.
+        </p>
+        <p>
+          The framework is intentionally minimal at launch. As the community grows and matures, governance evolves with it — from transparent founder-led decisions, to multi-signature trust networks, to community consensus through structured discussion and signed votes.
+        </p>
+        <p>
+          When the project is fully delivered, <span class="highlight">the community holds everything</span>. The future belongs to those who hold the token, build the dApps, and play the game.
+        </p>
+      </div>
+
+      <!-- TREASURY -->
+      <h3 class="section-h">[ ASSEMBLY_TREASURY ]</h3>
+
+      <div class="intro-block" style="border-color: rgba(255,140,26,0.4);">
+        <div class="label" style="color: rgba(255,140,26,0.85);">// 7,506,796 ZB :: 35.75% OF TOTAL SUPPLY //</div>
+        <p>
+          The <span class="highlight">Assembly Treasury</span> holds <span class="highlight">7,506,796 ZB</span> — the largest single allocation of the protocol. It is the all-in-one community fund that powers everything beyond the game economy and liquidity reserves.
+        </p>
+        <p>
+          <strong style="color:#fff;">What it funds:</strong>
+        </p>
+        <p style="margin-left: 18px; color: rgba(0,232,61,0.75);">
+          → Development (engaging contributors, paying for technical work)<br>
+          → Community programs (airdrops, ARG, contests, ambassador rewards)<br>
+          → Marketing & partnerships<br>
+          → Bug bounties, audits, translations, content creation<br>
+          → Anything that advances the protocol
+        </p>
+        <p>
+          <strong style="color:#fff;">How it operates:</strong>
+        </p>
+        <p style="margin-left: 18px; color: rgba(0,232,61,0.75);">
+          → <strong style="color:#FF8C1A;">Today</strong> — founder-led, transparent, every transaction on-chain<br>
+          → <strong style="color:#FF8C1A;">Soon</strong> — multi-signature with trusted long-term contributors<br>
+          → <strong style="color:#FF8C1A;">Eventually</strong> — community consensus, structured proposals, signed votes
+        </p>
+        <p style="border-top: 1px solid rgba(255,140,26,0.2); padding-top: 14px; margin-top: 18px;">
+          <span class="highlight">Every transaction is verifiable.</span> Every payment leaves an on-chain trace. The wallet address will be published once the protocol enters its public launch phase.
+        </p>
+      </div>
+
+      <!-- PRINCIPLES -->
+      <h3 class="section-h">[ FOUNDING_PRINCIPLES ]</h3>
+
+      <div class="principles">
+
+        <div class="principle">
+          <div class="num">// 01 //</div>
+          <div class="title">TRANSPARENCY</div>
+          <div class="desc">
+            All treasury wallets are public. Every transaction is verifiable on-chain. No hidden allocations, no private deals, no off-chain agreements.
+          </div>
+        </div>
+
+        <div class="principle">
+          <div class="num">// 02 //</div>
+          <div class="title">PROGRESSIVE DECENTRALIZATION</div>
+          <div class="desc">
+            Decision-making transitions from founder-led, to multi-signature, to fully decentralized as the community matures. No rush. No theater. Real governance.
+          </div>
+        </div>
+
+        <div class="principle">
+          <div class="num">// 03 //</div>
+          <div class="title">SOVEREIGNTY</div>
+          <div class="desc">
+            ZB does not depend on external validation. The protocol functions and grows independently. The Assembly is funded by ZB itself, governed by ZB holders, and answers to no one outside the community.
+          </div>
+        </div>
+
+        <div class="principle">
+          <div class="num">// 04 //</div>
+          <div class="title">UTILITY OVER SPECULATION</div>
+          <div class="desc">
+            Treasury funds are deployed for verifiable deliverables — game development, security audits, community programs. Not for hype, not for marketing pumps.
+          </div>
+        </div>
+
+      </div>
+
+      <!-- PHASES -->
+      <h3 class="section-h">[ GOVERNANCE_EVOLUTION ]</h3>
+
+      <div class="phases">
+
+        <div class="phase-row">
+          <div class="marker">PHASE_01</div>
+          <div class="content">
+            <h4>FOUNDER-LED // TRANSPARENT</h4>
+            <p>
+              The founder makes operational decisions according to publicly stated rules. All wallet activity is on-chain and verifiable. Community provides feedback through the Signal channels. This is the bootstrap phase — necessary, transparent, and intentionally temporary.
+            </p>
+          </div>
+        </div>
+
+        <div class="phase-row">
+          <div class="marker">PHASE_02</div>
+          <div class="content">
+            <h4>MULTI-SIGNATURE // TRUSTED</h4>
+            <p>
+              Treasury wallets transition to multi-signature control (3-of-5 or similar). Trusted long-term contributors share signing authority. Decisions require consensus among signers. Slower, but vastly more secure. This happens when the right contributors emerge — not on a fixed timeline.
+            </p>
+          </div>
+        </div>
+
+        <div class="phase-row orange">
+          <div class="marker">PHASE_03</div>
+          <div class="content">
+            <h4>COMMUNITY CONSENSUS</h4>
+            <p>
+              Once the community is established and engaged, governance becomes structured. Proposals are submitted on the forum, discussed openly, and voted on through cryptographic signatures (off-chain but verifiable). The Assembly executes decisions transparently. No complex smart contracts, no expensive infrastructure — just clear process, verifiable signatures, and on-chain transactions for execution. This evolves naturally — when the community is ready, not before.
+            </p>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- PROPOSAL TYPES -->
+      <h3 class="section-h">[ PROPOSAL_TYPES ]</h3>
+
+      <div class="proposal-types">
+
+        <div class="proposal-type">
+          <div class="icon">🚀</div>
+          <div class="name">DEVELOPMENT</div>
+          <div class="desc">Funding for technical work — bridge, game, audits, infrastructure. Requires verifiable deliverables.</div>
+        </div>
+
+        <div class="proposal-type">
+          <div class="icon">🎁</div>
+          <div class="name">COMMUNITY</div>
+          <div class="desc">Airdrops, contests, ARG events, bug bounties, translations, content creation rewards.</div>
+        </div>
+
+        <div class="proposal-type">
+          <div class="icon">🌊</div>
+          <div class="name">LIQUIDITY</div>
+          <div class="desc">Pool deployment decisions, liquidity mining campaigns, market-making strategies.</div>
+        </div>
+
+        <div class="proposal-type">
+          <div class="icon">🌌</div>
+          <div class="name">PROTOCOL</div>
+          <div class="desc">Major changes to the project direction, partnerships, ecosystem integrations.</div>
+        </div>
+
+      </div>
+
+      <!-- PLACEHOLDER -->
+      <div class="placeholder-box">
+        <div class="label">// CURRENT_STATUS //</div>
+        <div class="msg">
+          The Assembly is in <span style="color:#FF8C1A;">stealth phase</span>. Active proposal and voting infrastructure will launch when the community reaches sufficient size.
+          <br><br>
+          Until then, all treasury operations follow the <span style="color:#FF8C1A;">publicly stated rules</span>. Every transaction is verifiable on-chain.
+        </div>
+      </div>
+
+      <!-- SIGNAL WALL REDIRECT -->
+      <h3 class="section-h">[ JOIN_THE_ASSEMBLY ]</h3>
+
+      <div class="intro-block" style="margin-bottom: 24px;">
+        <div class="label">// WHERE_TO_PARTICIPATE //</div>
+        <p>
+          The Assembly lives on its <span class="highlight">Signal Wall</span> — a curated set of community channels for proposals, discussion, contribution, and code. Use the right channel for the right purpose. The Signal Wall has it all in one place.
+        </p>
+      </div>
+
+      <div class="cta-box">
+        <div class="title">VISIT THE SIGNAL WALL</div>
+        <div class="desc">
+          Forum proposals. Live chat. Public broadcasts. Code contributions.
+          <br><br>
+          One page, all the channels. <strong style="color:#FF8C1A;">The Assembly listens. The chain remembers.</strong>
+        </div>
+        <div class="links">
+          <a href="signal.html">VISIT_SIGNAL_WALL →</a>
+          <a href="https://zenon.tools/tokens/zts13sl7jccgrflw7u9rfsvzp7" target="_blank" rel="noopener">VERIFY_ON_CHAIN ↗</a>
+        </div>
+      </div>
+
+    </section>
+
+  </main>
+
+  <footer class="subpage-footer">
+    <div class="links">
+      <a href="https://x.com/ZBTOKENOfficial" target="_blank" rel="noopener">X</a>
+      <a href="https://t.me/ZBTOKENOfficial" target="_blank" rel="noopener">TELEGRAM</a>
+      <a href="https://zenon.tools/tokens/zts13sl7jccgrflw7u9rfsvzp7" target="_blank" rel="noopener">EXPLORER</a>
+      <a href="https://zenon.network" target="_blank" rel="noopener">ZENON</a>
+    </div>
+    <a href="index.html" class="back-link">← RETURN_TO_HUB</a>
+    <div class="signature">// the protocol is what we make of it. together.</div>
+  </footer>
+
+  <script src="effects.js"></script>
+<script src="zb-menu.js"></script>
+</body>
+</html>

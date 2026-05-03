@@ -1,0 +1,416 @@
+<!--
+  ZB_TOKEN :: GAME.html
+  // incoming transmission. status: in_development
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ZB TOKEN :: GAME</title>
+  <meta name="description" content="Pillars × Protocols. A multiplayer arena where alien factions fight for the network.">
+  <link rel="stylesheet" href="shared.css">
+  <style>
+    body {
+      background: #000;
+      margin: 0;
+      padding: 0;
+    }
+    .subpage-topbar {
+      position: relative;
+      z-index: 10;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 40px;
+      border-bottom: 1px solid rgba(0, 232, 61, 0.2);
+      font-size: 12px;
+      letter-spacing: 2px;
+      background: rgba(0, 0, 0, 0.85);
+      backdrop-filter: blur(6px);
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+    .subpage-topbar .left { display: flex; gap: 20px; align-items: center; }
+    .subpage-topbar .nav { display: flex; gap: 22px; flex-wrap: wrap; }
+    .subpage-topbar .nav a {
+      color: rgba(0, 232, 61, 0.7);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .subpage-topbar .nav a:hover, .subpage-topbar .nav a.active { color: #00E83D; }
+    .subpage-topbar .nav a.orange-link { color: rgba(255, 140, 26, 0.85); }
+    .subpage-topbar .nav a.orange-link:hover { color: #FF8C1A; }
+
+    .subpage-header {
+      position: relative;
+      z-index: 5;
+      padding: 70px 40px 30px;
+      text-align: center;
+      border-bottom: 1px solid rgba(0, 232, 61, 0.15);
+    }
+    .subpage-label {
+      color: #FF8C1A;
+      font-size: 12px;
+      letter-spacing: 4px;
+      margin-bottom: 14px;
+      opacity: 0.85;
+    }
+    .subpage-title {
+      font-family: 'Arial Black', Impact, sans-serif;
+      font-size: clamp(34px, 6vw, 64px);
+      font-weight: 900;
+      letter-spacing: 4px;
+      color: #fff;
+      margin-bottom: 14px;
+      text-shadow: 0 0 30px rgba(0, 232, 61, 0.4);
+    }
+    .subpage-subtitle {
+      color: rgba(0, 232, 61, 0.65);
+      font-size: 13px;
+      letter-spacing: 2px;
+      font-style: italic;
+    }
+    .subpage-footer {
+      position: relative;
+      z-index: 5;
+      padding: 50px 40px 30px;
+      border-top: 1px solid rgba(0, 232, 61, 0.2);
+      background: rgba(0, 0, 0, 0.7);
+      text-align: center;
+    }
+    .subpage-footer .links {
+      display: flex;
+      justify-content: center;
+      gap: 22px;
+      flex-wrap: wrap;
+      margin-bottom: 18px;
+    }
+    .subpage-footer .links a {
+      color: rgba(0, 232, 61, 0.7);
+      text-decoration: none;
+      font-size: 11px;
+      letter-spacing: 2px;
+    }
+    .subpage-footer .links a:hover { color: #00E83D; }
+    .subpage-footer .back-link {
+      display: inline-block;
+      color: #FF8C1A;
+      text-decoration: none;
+      font-size: 12px;
+      letter-spacing: 3px;
+      border: 1px solid #FF8C1A;
+      padding: 10px 24px;
+      margin-top: 16px;
+      transition: all 0.2s;
+    }
+    .subpage-footer .back-link:hover {
+      background: #FF8C1A;
+      color: #000;
+      box-shadow: 0 0 20px rgba(255, 140, 26, 0.5);
+    }
+    .subpage-footer .signature {
+      color: rgba(0, 232, 61, 0.4);
+      font-size: 10px;
+      letter-spacing: 2px;
+      margin-top: 24px;
+    }
+
+    /* Override section-padding for sub-pages: less top padding since we have own header */
+    section { padding-top: 60px !important; }
+
+    @media (max-width: 768px) {
+      .subpage-topbar { padding: 14px 16px; }
+      .subpage-topbar .nav { gap: 12px; font-size: 10px; }
+      .subpage-header { padding: 50px 20px 25px; }
+    }
+  </style>
+<link rel="stylesheet" href="zb-menu.css">
+</head>
+<body class="subpage-wrapper">
+
+  <div class="grid-bg"></div>
+  <div class="scanlines"></div>
+
+  <div class="subpage-topbar">
+    <div class="left">
+      <div class="status">
+        <span class="status-dot"></span>
+        <span>GAME_LOADED</span>
+      </div>
+      <span style="opacity: 0.5;">// ZB_TOKEN :: v1.0</span>
+    </div>
+  </div>
+
+  <header class="subpage-header">
+    <div class="subpage-label">[ DOCUMENT_04 ]  //  THE_GAME.transmission</div>
+    <h1 class="subpage-title">PILLARS × <span style="color:#FF8C1A;">PROTOCOLS</span></h1>
+    <div class="subpage-subtitle">// incoming transmission. status: in_development //</div>
+    <div style="margin-top: 28px;">
+      <a href="teaser.html" style="display: inline-block; padding: 14px 32px; border: 1px solid #FF8C1A; color: #FF8C1A; text-decoration: none; font-size: 12px; letter-spacing: 4px; background: rgba(255,140,26,0.05); transition: all 0.3s;">
+        ▶ WATCH_TRANSMISSION
+      </a>
+      <div style="margin-top: 10px; color: rgba(0,232,61,0.5); font-size: 10px; letter-spacing: 3px;">// 38_seconds // sound_recommended //</div>
+    </div>
+  </header>
+
+  <main>
+<!-- ==================== GAME SECTION ==================== -->
+<section id="game" class="game-section">
+  <div class="game-stars"></div>
+  <div class="game-glow-bg"></div>
+
+  <div class="section-header">
+    <div class="section-label">
+      <span class="orange">[ 04 ]</span> &nbsp;//&nbsp; THE_GAME.transmission
+    </div>
+    <div class="section-divider"></div>
+  </div>
+
+  <div class="game-content">
+    <div class="transmission-banner">
+      <div class="transmission-light"></div>
+      <div class="transmission-text">
+        <span class="transmission-status">// INCOMING_TRANSMISSION</span>
+        <span class="transmission-frequency">FREQ: 21.984 MHz · ENCRYPTED · ORIGIN: UNKNOWN</span>
+      </div>
+      <div class="transmission-light"></div>
+    </div>
+
+    <div class="game-hero">
+      <div class="game-hero-text">
+        <div class="game-pretitle">// PROJECT_CODENAME</div>
+        <h2 class="game-title">
+          <span class="game-title-line">PILLARS</span>
+          <span class="game-title-amp">×</span>
+          <span class="game-title-line orange">PROTOCOLS</span>
+        </h2>
+        <div class="game-tagline">
+          A multiplayer arena where alien factions fight for control of the network.
+          <span class="hl-orange">Conquer Pillars. Capture resources. Earn ZB.</span>
+        </div>
+        <div class="game-genre-row">
+          <span class="genre-tag">// SCI-FI ARENA</span>
+          <span class="genre-tag">// PLAY-TO-EARN</span>
+          <span class="genre-tag">// ON-CHAIN</span>
+          <span class="genre-tag">// DECENTRALIZED</span>
+        </div>
+      </div>
+
+      <div class="game-hero-visual">
+        <svg class="game-planet" viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <radialGradient id="planetGrad" cx="35%" cy="35%">
+              <stop offset="0%" stop-color="#1a3a1a"/>
+              <stop offset="60%" stop-color="#0a1a0a"/>
+              <stop offset="100%" stop-color="#000"/>
+            </radialGradient>
+            <radialGradient id="atmoGrad">
+              <stop offset="0%" stop-color="#00E83D" stop-opacity="0"/>
+              <stop offset="80%" stop-color="#00E83D" stop-opacity="0.1"/>
+              <stop offset="100%" stop-color="#00E83D" stop-opacity="0.5"/>
+            </radialGradient>
+            <radialGradient id="coreGrad">
+              <stop offset="0%" stop-color="#FF8C1A"/>
+              <stop offset="100%" stop-color="#FF8C1A" stop-opacity="0"/>
+            </radialGradient>
+          </defs>
+          <circle cx="200" cy="200" r="180" fill="url(#atmoGrad)"/>
+          <circle cx="200" cy="200" r="140" fill="url(#planetGrad)" stroke="#1a3a1a" stroke-width="1"/>
+          <path d="M 80 200 Q 120 180 160 195 Q 200 210 240 190 Q 280 175 320 195" fill="none" stroke="#00E83D" stroke-width="1" opacity="0.3"/>
+          <path d="M 70 230 Q 130 220 200 235 Q 270 245 330 230" fill="none" stroke="#00E83D" stroke-width="1" opacity="0.2"/>
+
+          <g class="planet-pillar-1">
+            <rect x="155" y="130" width="6" height="20" fill="#1a3a1a" stroke="#00E83D" stroke-width="0.5"/>
+            <rect x="156" y="135" width="4" height="4" fill="#00E83D"/>
+          </g>
+          <g class="planet-pillar-2">
+            <rect x="220" y="115" width="6" height="22" fill="#1a3a1a" stroke="#00E83D" stroke-width="0.5"/>
+            <rect x="221" y="120" width="4" height="4" fill="#FF8C1A"/>
+          </g>
+          <g class="planet-pillar-3">
+            <rect x="265" y="155" width="6" height="20" fill="#1a3a1a" stroke="#00E83D" stroke-width="0.5"/>
+            <rect x="266" y="160" width="4" height="4" fill="#00E83D"/>
+          </g>
+          <g class="planet-pillar-4">
+            <rect x="135" y="180" width="6" height="20" fill="#1a3a1a" stroke="#00E83D" stroke-width="0.5"/>
+            <rect x="136" y="185" width="4" height="4" fill="#FF8C1A"/>
+          </g>
+          <g class="planet-pillar-5">
+            <rect x="245" y="220" width="6" height="20" fill="#1a3a1a" stroke="#00E83D" stroke-width="0.5"/>
+            <rect x="246" y="225" width="4" height="4" fill="#00E83D"/>
+          </g>
+
+          <ellipse cx="200" cy="200" rx="180" ry="60" fill="none" stroke="#00E83D" stroke-width="1" opacity="0.4" transform="rotate(-15 200 200)"/>
+          <ellipse cx="200" cy="200" rx="180" ry="60" fill="none" stroke="#FF8C1A" stroke-width="1" opacity="0.3" transform="rotate(20 200 200)"/>
+
+          <circle cx="370" cy="170" r="3" fill="#00E83D"/>
+          <circle cx="40" cy="220" r="2" fill="#FF8C1A"/>
+          <circle cx="200" cy="20" r="2" fill="#00E83D"/>
+          <circle cx="200" cy="380" r="2" fill="#FF8C1A"/>
+
+          <circle cx="200" cy="200" r="40" fill="url(#coreGrad)" opacity="0.5"/>
+
+          <g opacity="0.7">
+            <line x1="40" y1="200" x2="60" y2="200" stroke="#00E83D" stroke-width="1"/>
+            <line x1="340" y1="200" x2="360" y2="200" stroke="#00E83D" stroke-width="1"/>
+            <line x1="200" y1="40" x2="200" y2="60" stroke="#00E83D" stroke-width="1"/>
+            <line x1="200" y1="340" x2="200" y2="360" stroke="#00E83D" stroke-width="1"/>
+          </g>
+
+          <g stroke="#FF8C1A" stroke-width="1.5" fill="none" opacity="0.6">
+            <path d="M 30 30 L 30 50 M 30 30 L 50 30"/>
+            <path d="M 370 30 L 370 50 M 370 30 L 350 30"/>
+            <path d="M 30 370 L 30 350 M 30 370 L 50 370"/>
+            <path d="M 370 370 L 370 350 M 370 370 L 350 370"/>
+          </g>
+        </svg>
+      </div>
+    </div>
+
+    <div class="mechanics-block">
+      <div class="specs-header">
+        <span class="orange">&gt;</span> core_mechanics.txt
+      </div>
+
+      <div class="mechanics-grid">
+        <div class="mech-card">
+          <div class="mech-icon">⊞</div>
+          <div class="mech-num">[ 01 ]</div>
+          <div class="mech-title">CAPTURE PILLARS</div>
+          <div class="mech-desc">Strategic points scattered across the battlefield. Hold them long enough and they reward your faction with resources.</div>
+        </div>
+        <div class="mech-card">
+          <div class="mech-icon">◈</div>
+          <div class="mech-num">[ 02 ]</div>
+          <div class="mech-title">EARN ZB</div>
+          <div class="mech-desc">Survive matches, complete objectives, defeat enemies. Convert in-game victories into real on-chain rewards.</div>
+        </div>
+        <div class="mech-card">
+          <div class="mech-icon">◐</div>
+          <div class="mech-num">[ 03 ]</div>
+          <div class="mech-title">DELEGATE & STRATEGIZE</div>
+          <div class="mech-desc">Stake ZB to power up Sentinels, unlock advanced gear, and gain tactical advantages for your team.</div>
+        </div>
+        <div class="mech-card">
+          <div class="mech-icon">◇</div>
+          <div class="mech-num">[ 04 ]</div>
+          <div class="mech-title">CHOOSE YOUR ALIEN</div>
+          <div class="mech-desc">Connect your wallet. Pick your tribe. Every crypto, every chain, every logo can become your avatar. The multiverse converges.</div>
+        </div>
+        <div class="mech-card">
+          <div class="mech-icon">⊕</div>
+          <div class="mech-num">[ 05 ]</div>
+          <div class="mech-title">UPGRADE & CUSTOMIZE</div>
+          <div class="mech-desc">Unlock weapons, ships, skins and abilities. Build the alien warrior that matches your style and your tribe.</div>
+        </div>
+        <div class="mech-card">
+          <div class="mech-icon">⌬</div>
+          <div class="mech-num">[ 06 ]</div>
+          <div class="mech-title">FULLY ON-CHAIN</div>
+          <div class="mech-desc">Every reward, every transaction, every asset, verified on the Zenon Network. No middlemen. No vanishing servers.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="game-status-block">
+      <div class="status-row">
+        <div class="status-cell">
+          <div class="status-key">// STATUS</div>
+          <div class="status-val">
+            <span class="status-pulse"></span>
+            <span class="hl-orange">IN_DEVELOPMENT</span>
+          </div>
+        </div>
+        <div class="status-cell">
+          <div class="status-key">// PHASE</div>
+          <div class="status-val">CONCEPT → DESIGN</div>
+        </div>
+        <div class="status-cell">
+          <div class="status-key">// LAUNCH</div>
+          <div class="status-val"><span class="hl-green">[ CLASSIFIED ]</span></div>
+        </div>
+        <div class="status-cell">
+          <div class="status-key">// PLATFORM</div>
+          <div class="status-val">WEB / DESKTOP</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="game-cta-block">
+      <div class="game-cta-text">
+        <span class="cta-tag">// EARLY_ACCESS</span>
+        <h3>The first to know will be the first to earn.</h3>
+        <p>Join the network now. Get whitelist access, alpha keys, and exclusive ZB drops before launch.</p>
+      </div>
+      <div class="game-cta-buttons">
+        <a href="https://t.me/ZBTOKENOfficial" target="_blank" rel="noopener" class="btn"><span>JOIN_TELEGRAM</span><span class="arrow">→</span></a>
+        <a href="https://x.com/ZBTOKENOfficial" target="_blank" rel="noopener" class="btn orange"><span>FOLLOW_X</span><span class="arrow">→</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== ROADMAP SECTION ==================== -->
+
+  </main>
+
+  <footer class="subpage-footer">
+    <div class="links">
+      <a href="https://x.com/ZBTOKENOfficial" target="_blank" rel="noopener">X</a>
+      <a href="https://t.me/ZBTOKENOfficial" target="_blank" rel="noopener">TELEGRAM</a>
+      <a href="https://zenon.tools/tokens/zts13sl7jccgrflw7u9rfsvzp7" target="_blank" rel="noopener">EXPLORER</a>
+      <a href="https://zenon.network" target="_blank" rel="noopener">ZENON</a>
+    </div>
+    <a href="index.html" class="back-link">← RETURN_TO_HUB</a>
+    <div class="signature">// extradata::6a4b...c0de, those who know, know.</div>
+  </footer>
+
+  <script>
+    // Copy contract functions for token page (and others if needed)
+    function copyContract() {
+      var addr = 'zts13sl7jccgrflw7u9rfsvzp7';
+      var copyText = document.getElementById('copy-text');
+      if (copyText && navigator.clipboard) {
+        navigator.clipboard.writeText(addr).then(function() {
+          copyText.textContent = 'COPIED ✓';
+          setTimeout(function() { copyText.textContent = 'COPY'; }, 2000);
+        });
+      }
+    }
+    function copyFinalContract() {
+      var addr = 'zts13sl7jccgrflw7u9rfsvzp7';
+      var copyText = document.getElementById('final-copy-text');
+      if (copyText && navigator.clipboard) {
+        navigator.clipboard.writeText(addr).then(function() {
+          copyText.textContent = 'COPIED ✓';
+          setTimeout(function() { copyText.textContent = 'COPY_CONTRACT'; }, 2000);
+        });
+      }
+    }
+  </script>
+
+<script>
+  // Add energy rings around the planet
+  (function() {
+    var planet = document.querySelector('.game-planet');
+    if (!planet) return;
+    var container = planet.parentElement; // .game-hero-visual
+
+    var ring1 = document.createElement('div');
+    ring1.className = 'energy-ring';
+    ring1.style.width = '380px';
+    ring1.style.height = '380px';
+    container.appendChild(ring1);
+
+    var ring2 = document.createElement('div');
+    ring2.className = 'energy-ring outer';
+    ring2.style.width = '460px';
+    ring2.style.height = '460px';
+    container.appendChild(ring2);
+  })();
+</script>
+<script src="effects.js"></script>
+<script src="zb-menu.js"></script>
+</body>
+</html>

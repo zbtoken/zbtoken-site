@@ -1,0 +1,180 @@
+/* ============================================
+   ZB MENU BURGER — Floating navigation overlay
+   Inject this CSS + the JS on every page
+   ============================================ */
+
+/* The floating burger button */
+.zb-menu-btn {
+  position: fixed;
+  top: 18px;
+  right: 18px;
+  width: 46px;
+  height: 46px;
+  background: rgba(0, 0, 0, 0.75);
+  border: 1px solid rgba(0, 232, 61, 0.5);
+  cursor: pointer;
+  z-index: 9998;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  backdrop-filter: blur(8px);
+  transition: all 0.3s ease;
+  border-radius: 4px;
+}
+.zb-menu-btn:hover {
+  background: rgba(0, 232, 61, 0.15);
+  border-color: rgba(0, 232, 61, 0.9);
+  box-shadow: 0 0 25px rgba(0, 232, 61, 0.4);
+}
+.zb-menu-btn .bar {
+  display: block;
+  width: 22px;
+  height: 2px;
+  background: #00E83D;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 6px rgba(0, 232, 61, 0.6);
+}
+.zb-menu-btn.open .bar1 { transform: rotate(45deg) translate(5px, 5px); }
+.zb-menu-btn.open .bar2 { opacity: 0; }
+.zb-menu-btn.open .bar3 { transform: rotate(-45deg) translate(5px, -5px); }
+
+/* The panel that slides in */
+.zb-menu-panel {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: min(380px, 90vw);
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.97);
+  border-left: 1px solid rgba(0, 232, 61, 0.3);
+  z-index: 9997;
+  transform: translateX(100%);
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  backdrop-filter: blur(20px);
+  overflow-y: auto;
+  padding: 90px 32px 40px;
+  font-family: 'Courier New', monospace;
+}
+.zb-menu-panel.open {
+  transform: translateX(0);
+}
+
+/* Backdrop overlay */
+.zb-menu-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: 9996;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.4s ease;
+  backdrop-filter: blur(4px);
+}
+.zb-menu-backdrop.open {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* Header inside panel */
+.zb-menu-header {
+  padding-bottom: 20px;
+  margin-bottom: 24px;
+  border-bottom: 1px solid rgba(0, 232, 61, 0.2);
+}
+.zb-menu-header .tag {
+  color: rgba(0, 232, 61, 0.7);
+  font-size: 10px;
+  letter-spacing: 4px;
+  margin-bottom: 8px;
+}
+.zb-menu-header .title {
+  color: #fff;
+  font-size: 20px;
+  font-weight: 900;
+  letter-spacing: 4px;
+  background: linear-gradient(90deg, #00E83D, #FF8C1A);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Section labels */
+.zb-menu-section {
+  color: rgba(255, 140, 26, 0.7);
+  font-size: 10px;
+  letter-spacing: 4px;
+  margin: 24px 0 12px;
+  padding-left: 4px;
+}
+.zb-menu-section:first-of-type {
+  margin-top: 0;
+}
+
+/* Menu items */
+.zb-menu-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.zb-menu-list li {
+  margin-bottom: 4px;
+}
+.zb-menu-link {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 16px;
+  color: rgba(255, 255, 255, 0.75);
+  text-decoration: none;
+  font-size: 13px;
+  letter-spacing: 3px;
+  border-left: 2px solid transparent;
+  transition: all 0.2s;
+  background: transparent;
+}
+.zb-menu-link:hover {
+  background: rgba(0, 232, 61, 0.06);
+  border-left-color: #00E83D;
+  color: #fff;
+  padding-left: 22px;
+}
+.zb-menu-link.orange:hover {
+  background: rgba(255, 140, 26, 0.06);
+  border-left-color: #FF8C1A;
+}
+.zb-menu-link.active {
+  background: rgba(0, 232, 61, 0.08);
+  border-left-color: #00E83D;
+  color: #fff;
+}
+.zb-menu-link .arrow {
+  color: rgba(0, 232, 61, 0.6);
+  font-size: 12px;
+  transition: transform 0.2s;
+}
+.zb-menu-link:hover .arrow {
+  transform: translateX(4px);
+  color: #00E83D;
+}
+.zb-menu-link.orange .arrow { color: rgba(255, 140, 26, 0.6); }
+.zb-menu-link.orange:hover .arrow { color: #FF8C1A; }
+.zb-menu-link.external .arrow { content: "↗"; }
+
+/* Footer in panel */
+.zb-menu-footer {
+  margin-top: 32px;
+  padding-top: 20px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  color: rgba(255, 255, 255, 0.35);
+  font-size: 9px;
+  letter-spacing: 3px;
+  text-align: center;
+  font-style: italic;
+}
+
+/* Body lock when menu open */
+body.zb-menu-locked {
+  overflow: hidden;
+}

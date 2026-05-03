@@ -1,0 +1,463 @@
+<!--
+  ZB_TOKEN :: TOKEN.html
+  // 21,000,000, like Satoshi intended
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ZB TOKEN :: TOKEN</title>
+  <meta name="description" content="ZB Token specs, contract address, supply, and how to acquire on Zenon.">
+  <link rel="stylesheet" href="shared.css">
+  <style>
+    body {
+      background: #000;
+      margin: 0;
+      padding: 0;
+    }
+    .subpage-topbar {
+      position: relative;
+      z-index: 10;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 40px;
+      border-bottom: 1px solid rgba(0, 232, 61, 0.2);
+      font-size: 12px;
+      letter-spacing: 2px;
+      background: rgba(0, 0, 0, 0.85);
+      backdrop-filter: blur(6px);
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+    .subpage-topbar .left { display: flex; gap: 20px; align-items: center; }
+    .subpage-topbar .nav { display: flex; gap: 22px; flex-wrap: wrap; }
+    .subpage-topbar .nav a {
+      color: rgba(0, 232, 61, 0.7);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .subpage-topbar .nav a:hover, .subpage-topbar .nav a.active { color: #00E83D; }
+    .subpage-topbar .nav a.orange-link { color: rgba(255, 140, 26, 0.85); }
+    .subpage-topbar .nav a.orange-link:hover { color: #FF8C1A; }
+
+    .subpage-header {
+      position: relative;
+      z-index: 5;
+      padding: 70px 40px 30px;
+      text-align: center;
+      border-bottom: 1px solid rgba(0, 232, 61, 0.15);
+    }
+    .subpage-label {
+      color: #FF8C1A;
+      font-size: 12px;
+      letter-spacing: 4px;
+      margin-bottom: 14px;
+      opacity: 0.85;
+    }
+    .subpage-title {
+      font-family: 'Arial Black', Impact, sans-serif;
+      font-size: clamp(34px, 6vw, 64px);
+      font-weight: 900;
+      letter-spacing: 4px;
+      color: #fff;
+      margin-bottom: 14px;
+      text-shadow: 0 0 30px rgba(0, 232, 61, 0.4);
+    }
+    .subpage-subtitle {
+      color: rgba(0, 232, 61, 0.65);
+      font-size: 13px;
+      letter-spacing: 2px;
+      font-style: italic;
+    }
+    .subpage-footer {
+      position: relative;
+      z-index: 5;
+      padding: 50px 40px 30px;
+      border-top: 1px solid rgba(0, 232, 61, 0.2);
+      background: rgba(0, 0, 0, 0.7);
+      text-align: center;
+    }
+    .subpage-footer .links {
+      display: flex;
+      justify-content: center;
+      gap: 22px;
+      flex-wrap: wrap;
+      margin-bottom: 18px;
+    }
+    .subpage-footer .links a {
+      color: rgba(0, 232, 61, 0.7);
+      text-decoration: none;
+      font-size: 11px;
+      letter-spacing: 2px;
+    }
+    .subpage-footer .links a:hover { color: #00E83D; }
+    .subpage-footer .back-link {
+      display: inline-block;
+      color: #FF8C1A;
+      text-decoration: none;
+      font-size: 12px;
+      letter-spacing: 3px;
+      border: 1px solid #FF8C1A;
+      padding: 10px 24px;
+      margin-top: 16px;
+      transition: all 0.2s;
+    }
+    .subpage-footer .back-link:hover {
+      background: #FF8C1A;
+      color: #000;
+      box-shadow: 0 0 20px rgba(255, 140, 26, 0.5);
+    }
+    .subpage-footer .signature {
+      color: rgba(0, 232, 61, 0.4);
+      font-size: 10px;
+      letter-spacing: 2px;
+      margin-top: 24px;
+    }
+
+    /* Override section-padding for sub-pages: less top padding since we have own header */
+    section { padding-top: 60px !important; }
+
+    @media (max-width: 768px) {
+      .subpage-topbar { padding: 14px 16px; }
+      .subpage-topbar .nav { gap: 12px; font-size: 10px; }
+      .subpage-header { padding: 50px 20px 25px; }
+    }
+  </style>
+<link rel="stylesheet" href="zb-menu.css">
+</head>
+<body class="subpage-wrapper">
+
+  <div class="grid-bg"></div>
+  <div class="scanlines"></div>
+
+  <div class="subpage-topbar">
+    <div class="left">
+      <div class="status">
+        <span class="status-dot"></span>
+        <span>TOKEN_LOADED</span>
+      </div>
+      <span style="opacity: 0.5;">// ZB_TOKEN :: v1.0</span>
+    </div>
+  </div>
+
+  <header class="subpage-header">
+    <div class="subpage-label">[ DOCUMENT_02 ]  //  ZB_TOKEN.specs</div>
+    <h1 class="subpage-title">ZB <span style="color:#FF8C1A;">TOKEN</span></h1>
+    <div class="subpage-subtitle">// 21,000,000, like Satoshi intended //</div>
+  </header>
+
+  <main>
+<!-- ==================== TOKEN SECTION ==================== -->
+<section id="token" class="token-section">
+  <div class="token-grid-bg"></div>
+
+  <div class="section-header">
+    <div class="section-label">
+      <span class="orange">[ 02 ]</span> &nbsp;//&nbsp; ZB_TOKEN.specs
+    </div>
+    <div class="section-divider"></div>
+  </div>
+
+  <div class="token-content">
+    <div class="token-intro">
+      <h2 class="token-title">
+        <span class="zb-green">Z</span><span class="zb-orange">B</span>
+        <span class="token-subtitle">// THE_NATIVE_ASSET</span>
+      </h2>
+      <p class="token-desc">
+        Issued natively on the <span class="hl">Zenon Network of Momentum</span> via the Zenon Token Standard (ZTS). Feeless. Fast. Censorship-resistant. Owned by the community.
+      </p>
+    </div>
+
+    <div class="contract-card">
+      <div class="contract-header">
+        <span class="contract-label">
+          <span class="status-dot"></span>
+          ZTS_CONTRACT_ADDRESS
+        </span>
+        <span class="contract-network">// ZENON_MAINNET</span>
+      </div>
+      <div class="contract-address" id="contract-addr">zts13sl7jccgrflw7u9rfsvzp7</div>
+      <div class="contract-actions">
+        <button class="btn-small" onclick="copyContract()">
+          <span>⧉</span>
+          <span id="copy-text">COPY</span>
+        </button>
+        <a href="https://zenon.tools/tokens/zts13sl7jccgrflw7u9rfsvzp7" target="_blank" rel="noopener" class="btn-small orange">
+          <span>VIEW_ON_EXPLORER</span>
+          <span class="arrow">↗</span>
+        </a>
+      </div>
+    </div>
+
+    <div class="specs-block">
+      <div class="specs-header">
+        <span class="orange">&gt;</span> token_specs.cfg
+      </div>
+      <div class="specs-grid">
+        <div class="spec-item"><div class="spec-key">// NAME</div><div class="spec-value">ZB_TOKEN</div></div>
+        <div class="spec-item"><div class="spec-key">// SYMBOL</div><div class="spec-value">ZB</div></div>
+        <div class="spec-item"><div class="spec-key">// NETWORK</div><div class="spec-value">ZENON / NoM</div></div>
+        <div class="spec-item"><div class="spec-key">// STANDARD</div><div class="spec-value">ZTS</div></div>
+        <div class="spec-item"><div class="spec-key">// DECIMALS</div><div class="spec-value">8</div></div>
+        <div class="spec-item"><div class="spec-key">// UTILITY_TOKEN</div><div class="spec-value highlight-green">YES</div></div>
+        <div class="spec-item"><div class="spec-key">// FEES</div><div class="spec-value highlight-green">FEELESS</div></div>
+        <div class="spec-item"><div class="spec-key">// LAUNCH</div><div class="spec-value highlight-orange">FAIR</div></div>
+        <div class="spec-item"><div class="spec-key">// GENESIS</div><div class="spec-value">11/MAY/2024</div></div>
+        <div class="spec-item"><div class="spec-key">// EVM_BRIDGE</div><div class="spec-value dim-value">[ COMING ]</div></div>
+      </div>
+    </div>
+
+    <div class="supply-block">
+      <div class="supply-header">
+        <span class="orange">&gt;</span> supply_distribution.dat
+      </div>
+
+      <div class="supply-cards">
+        <div class="supply-card-main">
+          <div class="supply-card-bg-glow"></div>
+          <div class="supply-label">// TOTAL_SUPPLY</div>
+          <div class="supply-number">
+            <span class="num">21,000,000</span>
+            <span class="symbol">ZB</span>
+          </div>
+          <div class="supply-bar">
+            <div class="supply-bar-fill"></div>
+          </div>
+          <div class="supply-meta">
+            <span class="meta-item"><span class="dim">// MINTED:</span> <span class="hl-green">21,000,000</span></span>
+            <span class="meta-item"><span class="dim">// BURNED:</span> <span class="hl-orange">0</span></span>
+            <span class="meta-item"><span class="dim">// CIRCULATING:</span> <span class="hl-green">100%</span></span>
+          </div>
+          <div class="supply-easter">
+            <span class="cipher-text">// 21,000,000, sound familiar? satoshi knew. now you know.</span>
+          </div>
+        </div>
+
+        <div class="supply-card-side">
+          <div class="supply-label">// OWNER_ADDRESS</div>
+          <div class="owner-address">z1qz9t44...9myjxg6e</div>
+          <div class="supply-meta-vertical">
+            <div class="meta-row"><span class="dim">CAN_MINT:</span> <span class="hl-orange">YES</span></div>
+            <div class="meta-row"><span class="dim">CAN_BURN:</span> <span class="hl-orange">YES</span></div>
+            <div class="meta-row"><span class="dim">MAX_SUPPLY:</span> <span class="hl-green">21M</span></div>
+            <div class="meta-row"><span class="dim">CREATED:</span> <span class="hl-green">12.05.24</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="acquire-block">
+      <div class="acquire-header">
+        <span class="orange">&gt;</span> how_to_acquire.sh
+      </div>
+
+      <div class="steps-grid">
+        <div class="step-card">
+          <div class="step-num">01</div>
+          <div class="step-title">GET A WALLET</div>
+          <div class="step-desc">Download Syrius, the official non-custodial wallet for Zenon. Store ZNN, QSR and ZTS tokens like ZB.</div>
+          <a href="https://github.com/zenon-network/syrius/releases" target="_blank" rel="noopener" class="step-link">DOWNLOAD_SYRIUS <span class="arrow">↗</span></a>
+        </div>
+        <div class="step-card">
+          <div class="step-num">02</div>
+          <div class="step-title">GET SOME ZNN</div>
+          <div class="step-desc">Acquire ZNN (the native coin of Zenon) from a supported exchange or via a P2P swap. ZNN is your gateway to the network.</div>
+          <a href="https://www.coingecko.com/en/coins/zenon" target="_blank" rel="noopener" class="step-link">FIND_ZNN <span class="arrow">↗</span></a>
+        </div>
+        <div class="step-card">
+          <div class="step-num">03</div>
+          <div class="step-title">SWAP FOR ZB</div>
+          <div class="step-desc">Use Zenon-native tools and DEXs to swap ZNN for ZB tokens. Verify the contract address before any transaction.</div>
+          <a href="https://zenon.tools/tokens/zts13sl7jccgrflw7u9rfsvzp7" target="_blank" rel="noopener" class="step-link">ACQUIRE_ZB <span class="arrow">↗</span></a>
+        </div>
+      </div>
+
+      <div class="warning-box">
+        <span class="warn-icon">⚠</span>
+        <div>
+          <strong>// VERIFY_BEFORE_TRADE.</strong> Always check the contract address matches <code>zts13sl7jccgrflw7u9rfsvzp7</code>. Beware of impersonators. Not your keys, not your coins.
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== TOKENOMICS SECTION ==================== -->
+
+<section id="tokenomics" class="tokenomics-section" style="padding: 80px 0 60px; border-top: 1px solid rgba(0,232,61,0.15);">
+  <div class="section-content" style="max-width: 1100px; margin: 0 auto; padding: 0 24px;">
+
+    <div class="section-header" style="text-align: center; margin-bottom: 50px;">
+      <div class="section-label" style="color: rgba(255,140,26,0.7); font-size: 11px; letter-spacing: 6px;">// FILE_03 :: TREASURY_DISTRIBUTION //</div>
+      <div class="section-divider" style="width: 60px; height: 1px; background: rgba(0,232,61,0.4); margin: 16px auto;"></div>
+      <h2 class="section-title" style="font-size: clamp(28px, 4vw, 48px); letter-spacing: 4px; color: #fff; margin-bottom: 14px;">TOKENOMICS</h2>
+      <p class="section-subtitle" style="color: rgba(0,232,61,0.7); font-size: 13px; letter-spacing: 2px; max-width: 700px; margin: 0 auto;">
+        Where every ZB goes. Every wallet public. Every transaction verifiable. No hidden allocations.
+      </p>
+    </div>
+
+    <!-- ON-CHAIN TRUTH BOX -->
+    <div class="onchain-truth" style="background: rgba(0,0,0,0.5); border: 1px solid rgba(0,232,61,0.3); padding: 24px; margin-bottom: 40px; font-size: 13px; line-height: 1.8;">
+      <div style="color: rgba(255,140,26,0.85); font-size: 10px; letter-spacing: 4px; margin-bottom: 14px;">// ON-CHAIN_FACTS // VERIFIABLE_AT zenon.tools //</div>
+      <div style="color: rgba(0,232,61,0.85);">
+        Total supply <span style="color:#fff;">21,000,000 ZB</span> minted on Zenon Network, May 11, 2024.
+        <br>
+        <span style="color:#fff;">9.25%</span> already distributed organically to <span style="color:#fff;">124 unique community wallets</span> through 5,498 transactions over 9 months (May 2024 — Feb 2025).
+        <br>
+        <span style="color:#fff;">90.75%</span> held in the deployment wallet, to be deployed transparently across community, development, game economy, and treasury allocations.
+        <br>
+        <span style="color:#FF8C1A;">No initial liquidity pool. No founder allocation. The market will form organically. Like Bitcoin. Like Zenon.</span>
+      </div>
+    </div>
+
+    <!-- HISTORICAL DISTRIBUTION -->
+    <div style="margin-bottom: 50px;">
+      <h3 style="color: rgba(0,232,61,0.85); font-size: 14px; letter-spacing: 4px; margin-bottom: 18px;">[ HISTORICAL_DISTRIBUTION ] // already_on_chain</h3>
+
+      <div class="alloc-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px;">
+
+        <div class="alloc-card" style="background: rgba(0,232,61,0.05); border: 1px solid rgba(0,232,61,0.3); padding: 22px;">
+          <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 8px;">
+            <span style="color:#fff; font-size: 13px; letter-spacing: 2px; font-weight: bold;">COMMUNITY HOLDERS</span>
+            <span style="color:#00E83D; font-size: 22px; font-weight: bold;">9.25%</span>
+          </div>
+          <div style="color: rgba(0,232,61,0.7); font-size: 11px; margin-bottom: 12px;">1,943,204 ZB</div>
+          <div style="color: rgba(255,255,255,0.55); font-size: 11px; line-height: 1.6;">
+            Distributed via the original community faucet. <strong>124 unique wallets</strong> received <strong>321 ZB</strong> per transaction across 9 months. Pure organic distribution.
+          </div>
+        </div>
+
+        <div class="alloc-card" style="background: rgba(255,140,26,0.05); border: 1px solid rgba(255,140,26,0.3); padding: 22px;">
+          <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 8px;">
+            <span style="color:#fff; font-size: 13px; letter-spacing: 2px; font-weight: bold;">FAUCET RECOVERED</span>
+            <span style="color:#FF8C1A; font-size: 22px; font-weight: bold;">1.13%</span>
+          </div>
+          <div style="color: rgba(255,140,26,0.7); font-size: 11px; margin-bottom: 12px;">237,068 ZB recovered</div>
+          <div style="color: rgba(255,255,255,0.55); font-size: 11px; line-height: 1.6;">
+            Original faucet wallet was secured and consolidated into the deployment wallet for operational sovereignty. These tokens are now part of the future allocations below.
+            <br><br>
+            <code style="color: rgba(255,140,26,0.6); font-size: 10px; word-break: break-all;">z1qp0vnrrt...4hvd4d93 (now empty)</code>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- FUTURE ALLOCATIONS -->
+    <div style="margin-bottom: 40px;">
+      <h3 style="color: rgba(0,232,61,0.85); font-size: 14px; letter-spacing: 4px; margin-bottom: 18px;">[ FUTURE_ALLOCATIONS ] // 19,056,796 ZB on deployment_wallet</h3>
+
+      <div class="alloc-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 14px;">
+
+        <div class="alloc-future" style="background: rgba(255,140,26,0.04); border: 1px solid rgba(255,140,26,0.25); padding: 20px; position: relative;">
+          <div style="font-size: 26px; margin-bottom: 8px;">🎮</div>
+          <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 6px;">
+            <span style="color:#fff; font-size: 12px; letter-spacing: 2px; font-weight: bold;">GAME ECONOMY</span>
+            <span style="color:#FF8C1A; font-size: 18px; font-weight: bold;">30%</span>
+          </div>
+          <div style="color: rgba(255,140,26,0.7); font-size: 11px; margin-bottom: 10px;">6,300,000 ZB</div>
+          <div style="color: rgba(255,255,255,0.5); font-size: 10px; line-height: 1.6;">
+            Player rewards, NFTs, in-game economy, P2E activation. 5-10 years of runway for the game ecosystem.
+          </div>
+        </div>
+
+        <div class="alloc-future" style="background: rgba(0,232,61,0.04); border: 1px solid rgba(0,232,61,0.25); padding: 20px;">
+          <div style="font-size: 26px; margin-bottom: 8px;">🌊</div>
+          <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 6px;">
+            <span style="color:#fff; font-size: 12px; letter-spacing: 2px; font-weight: bold;">LIQUIDITY RESERVE</span>
+            <span style="color:#00E83D; font-size: 18px; font-weight: bold;">25%</span>
+          </div>
+          <div style="color: rgba(0,232,61,0.7); font-size: 11px; margin-bottom: 10px;">5,250,000 ZB</div>
+          <div style="color: rgba(255,255,255,0.5); font-size: 10px; line-height: 1.6;">
+            Reserved for future DEX pools across multiple chains (Zenon, EVM, others). Liquidity mining included. Locked at each deployment.
+          </div>
+        </div>
+
+        <div class="alloc-future" style="background: rgba(255,140,26,0.06); border: 1px solid rgba(255,140,26,0.4); padding: 20px;">
+          <div style="font-size: 26px; margin-bottom: 8px;">🏛️</div>
+          <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 6px;">
+            <span style="color:#fff; font-size: 12px; letter-spacing: 2px; font-weight: bold;">ZB ASSEMBLY</span>
+            <span style="color:#FF8C1A; font-size: 18px; font-weight: bold;">35.75%</span>
+          </div>
+          <div style="color: rgba(255,140,26,0.7); font-size: 11px; margin-bottom: 10px;">7,506,796 ZB</div>
+          <div style="color: rgba(255,255,255,0.5); font-size: 10px; line-height: 1.6;">
+            <strong style="color:#FF8C1A;">All-in-one community fund.</strong> Inspired by Zenon's Accelerator-Z. Covers development, community programs, marketing, bug bounties, partnerships. Founder-led with public rules → multi-sig → community consensus through signed votes.
+          </div>
+        </div>
+
+        <div class="alloc-future" style="background: rgba(0,232,61,0.04); border: 1px solid rgba(0,232,61,0.4); padding: 20px;">
+          <div style="font-size: 26px; margin-bottom: 8px;">⭐</div>
+          <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 6px;">
+            <span style="color:#fff; font-size: 12px; letter-spacing: 2px; font-weight: bold;">FOUNDER</span>
+            <span style="color:#00E83D; font-size: 18px; font-weight: bold;">0%</span>
+          </div>
+          <div style="color: rgba(0,232,61,0.7); font-size: 11px; margin-bottom: 10px;">0 ZB</div>
+          <div style="color: rgba(255,255,255,0.55); font-size: 10px; line-height: 1.6;">
+            <strong style="color:#00E83D;">True fair launch.</strong> No allocation. No vesting. No insider deal. Like Bitcoin. Like Zenon.
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- VERIFY BOX -->
+    <div class="verify-box" style="background: rgba(0,0,0,0.5); border: 1px solid rgba(0,232,61,0.3); padding: 22px; text-align: center;">
+      <div style="color: rgba(255,140,26,0.7); font-size: 10px; letter-spacing: 4px; margin-bottom: 12px;">// DON'T TRUST. VERIFY. //</div>
+      <div style="color: rgba(0,232,61,0.85); font-size: 12px; line-height: 1.8; margin-bottom: 14px;">
+        Every claim above is verifiable on-chain through public block explorers.
+        <br>
+        Wallet addresses will be published as allocations are deployed.
+      </div>
+      <a href="https://zenon.tools/tokens/zts13sl7jccgrflw7u9rfsvzp7" target="_blank" rel="noopener" style="color:#00E83D; text-decoration: none; font-size: 11px; letter-spacing: 3px; border: 1px solid rgba(0,232,61,0.5); padding: 10px 22px; display: inline-block;">
+        VERIFY_ON_CHAIN <span class="arrow">↗</span>
+      </a>
+    </div>
+
+  </div>
+</section>
+
+<!-- ==================== UNIVERSE SECTION ==================== -->
+
+  </main>
+
+  <footer class="subpage-footer">
+    <div class="links">
+      <a href="https://x.com/ZBTOKENOfficial" target="_blank" rel="noopener">X</a>
+      <a href="https://t.me/ZBTOKENOfficial" target="_blank" rel="noopener">TELEGRAM</a>
+      <a href="https://zenon.tools/tokens/zts13sl7jccgrflw7u9rfsvzp7" target="_blank" rel="noopener">EXPLORER</a>
+      <a href="https://zenon.network" target="_blank" rel="noopener">ZENON</a>
+    </div>
+    <a href="index.html" class="back-link">← RETURN_TO_HUB</a>
+    <div class="signature">// extradata::6a4b...c0de, those who know, know.</div>
+  </footer>
+
+  <script>
+    // Copy contract functions for token page (and others if needed)
+    function copyContract() {
+      var addr = 'zts13sl7jccgrflw7u9rfsvzp7';
+      var copyText = document.getElementById('copy-text');
+      if (copyText && navigator.clipboard) {
+        navigator.clipboard.writeText(addr).then(function() {
+          copyText.textContent = 'COPIED ✓';
+          setTimeout(function() { copyText.textContent = 'COPY'; }, 2000);
+        });
+      }
+    }
+    function copyFinalContract() {
+      var addr = 'zts13sl7jccgrflw7u9rfsvzp7';
+      var copyText = document.getElementById('final-copy-text');
+      if (copyText && navigator.clipboard) {
+        navigator.clipboard.writeText(addr).then(function() {
+          copyText.textContent = 'COPIED ✓';
+          setTimeout(function() { copyText.textContent = 'COPY_CONTRACT'; }, 2000);
+        });
+      }
+    }
+  </script>
+
+<script src="effects.js"></script>
+<script src="zb-menu.js"></script>
+</body>
+</html>

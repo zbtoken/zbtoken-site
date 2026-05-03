@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ZB TOKEN :: FAQ</title>
+  <meta name="description" content="Frequently asked questions about ZB Token. 39 answers across 6 levels.">
+  <link rel="stylesheet" href="shared.css">
+  <style>
+    body { background: #000; margin: 0; padding: 0; }
+
+    /* Document pages styles - cypherpunk doc */
+    .doc-topbar {
+      position: relative;
+      z-index: 10;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 40px;
+      border-bottom: 1px solid rgba(0, 232, 61, 0.2);
+      font-size: 12px;
+      letter-spacing: 2px;
+      background: rgba(0, 0, 0, 0.85);
+      backdrop-filter: blur(6px);
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+    .doc-topbar .left { display: flex; gap: 20px; align-items: center; }
+    .doc-topbar .nav { display: flex; gap: 22px; flex-wrap: wrap; }
+    .doc-topbar .nav a {
+      color: rgba(0, 232, 61, 0.7);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .doc-topbar .nav a:hover, .doc-topbar .nav a.active { color: #00E83D; }
+    .doc-topbar .nav a.orange-link { color: rgba(255, 140, 26, 0.85); }
+    .doc-topbar .nav a.orange-link.active, .doc-topbar .nav a.orange-link:hover { color: #FF8C1A; }
+
+    .doc-page-header {
+      position: relative;
+      z-index: 5;
+      padding: 70px 40px 30px;
+      text-align: center;
+      border-bottom: 1px solid rgba(0, 232, 61, 0.15);
+    }
+    .doc-page-label {
+      color: #FF8C1A;
+      font-size: 12px;
+      letter-spacing: 4px;
+      margin-bottom: 14px;
+      opacity: 0.85;
+    }
+    .doc-page-title {
+      font-family: 'Arial Black', Impact, sans-serif;
+      font-size: clamp(34px, 6vw, 64px);
+      font-weight: 900;
+      letter-spacing: 4px;
+      color: #fff;
+      margin-bottom: 14px;
+      text-shadow: 0 0 30px rgba(0, 232, 61, 0.4);
+    }
+    .doc-page-subtitle {
+      color: rgba(0, 232, 61, 0.65);
+      font-size: 13px;
+      letter-spacing: 2px;
+      font-style: italic;
+    }
+
+    .doc-container {
+      position: relative;
+      z-index: 5;
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 50px 40px 80px;
+    }
+
+    .doc-meta-box {
+      background: rgba(0, 232, 61, 0.04);
+      border: 1px solid rgba(0, 232, 61, 0.2);
+      padding: 20px 24px;
+      margin-bottom: 50px;
+      font-size: 12px;
+      letter-spacing: 1px;
+      font-family: 'Courier New', monospace;
+    }
+    .doc-meta-box-line { margin-bottom: 6px; color: rgba(0, 232, 61, 0.85); }
+    .doc-meta-box-line:last-child { margin-bottom: 0; }
+    .doc-meta-box .dim { color: rgba(0, 232, 61, 0.5); margin-right: 10px; }
+    .doc-meta-box .hash { color: #FF8C1A; }
+    .doc-meta-box .verified { color: #00E83D; }
+
+    /* Level dividers */
+    .level-divider {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin: 60px 0 32px;
+    }
+    .level-tag {
+      display: inline-block;
+      padding: 6px 14px;
+      border: 1px solid currentColor;
+      font-size: 11px;
+      letter-spacing: 3px;
+      font-weight: bold;
+      white-space: nowrap;
+      font-family: 'Courier New', monospace;
+    }
+    .level-tag.green { color: #00E83D; }
+    .level-tag.blue { color: #4dd2ff; }
+    .level-tag.purple { color: #c084fc; }
+    .level-tag.red { color: #ff5050; }
+    .level-tag.orange { color: #FF8C1A; }
+    .level-line {
+      flex: 1;
+      height: 1px;
+      background: linear-gradient(to right, currentColor, transparent);
+      opacity: 0.3;
+    }
+
+    /* QA blocks (FAQ) */
+    .qa {
+      margin-bottom: 36px;
+      padding-left: 18px;
+      border-left: 1px solid rgba(0, 232, 61, 0.18);
+    }
+    .qa .q {
+      color: #fff;
+      font-size: 15px;
+      font-weight: bold;
+      letter-spacing: 1px;
+      margin-bottom: 14px;
+      line-height: 1.5;
+      font-family: 'Courier New', monospace;
+    }
+    .qa .q::before { content: 'Q. '; color: #FF8C1A; }
+    .qa .a {
+      color: rgba(0, 232, 61, 0.88);
+      font-size: 14px;
+      line-height: 1.75;
+      font-family: 'Courier New', monospace;
+    }
+
+    /* Whitepaper sections */
+    h2.section-h {
+      color: #fff;
+      font-size: 22px;
+      letter-spacing: 2px;
+      margin: 56px 0 20px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid rgba(0, 232, 61, 0.2);
+      font-weight: 900;
+      font-family: 'Arial Black', Impact, sans-serif;
+    }
+    h2.section-h::before { content: '// '; color: #FF8C1A; }
+    h3.subsection-h {
+      color: #00E83D;
+      font-size: 16px;
+      letter-spacing: 1.5px;
+      margin: 32px 0 14px;
+      font-weight: bold;
+      font-family: 'Courier New', monospace;
+    }
+    h3.subsection-h::before { content: '> '; color: #FF8C1A; }
+
+    .doc-container p {
+      margin-bottom: 16px;
+      color: rgba(0, 232, 61, 0.85);
+      font-size: 14px;
+      font-family: 'Courier New', monospace;
+      line-height: 1.75;
+    }
+    .doc-container ul, .doc-container ol {
+      margin: 12px 0 18px 24px;
+      color: rgba(0, 232, 61, 0.85);
+    }
+    .doc-container li {
+      margin-bottom: 8px;
+      font-size: 14px;
+      font-family: 'Courier New', monospace;
+      line-height: 1.7;
+    }
+    .doc-container ul li::marker { color: #FF8C1A; }
+    .doc-container strong { color: #fff; }
+    .doc-container em { color: #FF8C1A; font-style: normal; }
+    .doc-container code {
+      background: rgba(0, 232, 61, 0.1);
+      border: 1px solid rgba(0, 232, 61, 0.25);
+      padding: 2px 8px;
+      font-size: 12px;
+      color: #FF8C1A;
+      border-radius: 2px;
+      word-break: break-all;
+      font-family: 'Courier New', monospace;
+    }
+    .doc-container pre {
+      background: rgba(0, 232, 61, 0.04);
+      border: 1px solid rgba(0, 232, 61, 0.2);
+      padding: 18px 22px;
+      margin: 16px 0;
+      font-size: 12px;
+      color: #FF8C1A;
+      overflow-x: auto;
+      border-radius: 2px;
+      line-height: 1.6;
+      font-family: 'Courier New', monospace;
+    }
+    .doc-container pre code { background: none; border: none; padding: 0; color: inherit; }
+    .doc-container a {
+      color: #FF8C1A;
+      text-decoration: none;
+      border-bottom: 1px dashed rgba(255, 140, 26, 0.4);
+    }
+    .doc-container a:hover { color: #fff; border-bottom-color: #fff; }
+    .doc-container blockquote {
+      border-left: 2px solid #FF8C1A;
+      padding: 8px 0 8px 18px;
+      margin: 18px 0;
+      color: rgba(255, 140, 26, 0.85);
+      font-style: italic;
+      font-size: 14px;
+      font-family: 'Courier New', monospace;
+    }
+    .doc-container table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 18px 0;
+      font-size: 13px;
+      font-family: 'Courier New', monospace;
+    }
+    .doc-container th, .doc-container td {
+      padding: 10px 14px;
+      text-align: left;
+      border: 1px solid rgba(0, 232, 61, 0.2);
+    }
+    .doc-container th {
+      background: rgba(0, 232, 61, 0.06);
+      color: #00E83D;
+      letter-spacing: 1.5px;
+      font-weight: bold;
+    }
+    .doc-container td { color: rgba(0, 232, 61, 0.85); }
+
+    .doc-footer {
+      position: relative;
+      z-index: 5;
+      padding: 50px 40px 30px;
+      border-top: 1px solid rgba(0, 232, 61, 0.2);
+      background: rgba(0, 0, 0, 0.7);
+      text-align: center;
+    }
+    .doc-footer .links {
+      display: flex;
+      justify-content: center;
+      gap: 22px;
+      flex-wrap: wrap;
+      margin-bottom: 18px;
+    }
+    .doc-footer .links a {
+      color: rgba(0, 232, 61, 0.7);
+      text-decoration: none;
+      font-size: 11px;
+      letter-spacing: 2px;
+    }
+    .doc-footer .links a:hover { color: #00E83D; }
+    .doc-footer .back-link {
+      display: inline-block;
+      color: #FF8C1A;
+      text-decoration: none;
+      font-size: 12px;
+      letter-spacing: 3px;
+      border: 1px solid #FF8C1A;
+      padding: 10px 24px;
+      margin-top: 16px;
+      transition: all 0.2s;
+      font-family: 'Courier New', monospace;
+    }
+    .doc-footer .back-link:hover {
+      background: #FF8C1A;
+      color: #000;
+      box-shadow: 0 0 20px rgba(255, 140, 26, 0.5);
+    }
+    .doc-footer .signature {
+      color: rgba(0, 232, 61, 0.4);
+      font-size: 10px;
+      letter-spacing: 2px;
+      margin-top: 24px;
+    }
+
+    @media (max-width: 768px) {
+      .doc-topbar { padding: 14px 16px; }
+      .doc-topbar .nav { gap: 12px; font-size: 10px; }
+      .doc-page-header { padding: 50px 20px 25px; }
+      .doc-container { padding: 40px 20px 60px; }
+      h2.section-h { font-size: 18px; }
+      .qa .q { font-size: 14px; }
+      .qa .a, .doc-container p, .doc-container li { font-size: 13px; }
+    }
+  </style>
+<link rel="stylesheet" href="zb-menu.css">
+</head>
+<body class="subpage-wrapper">
+
+  <div class="grid-bg" style="position:fixed;"></div>
+  <div class="scanlines" style="position:fixed;"></div>
+
+  <div class="doc-topbar">
+    <div class="left">
+      <div class="status">
+        <span class="status-dot"></span>
+        <span>FAQ_LOADED</span>
+      </div>
+      <span style="opacity: 0.5;">// ZB_TOKEN :: v1.0</span>
+    </div>
+  </div>
+
+  <header class="doc-page-header">
+    <div class="doc-page-label">[ DOCUMENT_06 ]  //  FAQ.archive</div>
+    <h1 class="doc-page-title">FREQUENTLY <span style="color:#FF8C1A;">ASKED</span></h1>
+    <div class="doc-page-subtitle">// before you ask, read the chain //</div>
+  </header>
+
+  <main class="doc-container">
+
+    <div class="doc-meta-box">
+      <div class="doc-meta-box-line"><span class="dim">FILE:</span>faq_v1.txt</div>
+      <div class="doc-meta-box-line"><span class="dim">VERSION:</span>1.0</div>
+      <div class="doc-meta-box-line"><span class="dim">AUTHOR:</span>anon</div>
+      <div class="doc-meta-box-line"><span class="dim">CONTRACT:</span><span class="hash">zts13sl7jccgrflw7u9rfsvzp7</span></div>
+      <div class="doc-meta-box-line"><span class="dim">STATUS:</span><span class="verified">[ VERIFIED ]</span></div>
+    </div>
+
+    <blockquote>
+      // before you ask, read the chain.<br>
+      // the answers are in the code.
+    </blockquote>
+
+
+    <div class="level-divider">
+      <span class="level-tag green">[ LEVEL_01 :: BASICS ]</span>
+      <span class="level-line"></span>
+    </div>
+    <div class="qa">
+      <div class="q">Q1. What is ZB Token?</div>
+      <div class="a"><p>ZB is a community-issued utility token deployed on the Zenon Network of Momentum. With a fixed supply of 21,000,000 (a deliberate echo of Bitcoin's monetary cap), ZB acts as a cultural and economic bridge between the orange of Bitcoin and the green of Zenon. It is the native currency of an emerging alien economy that will power games, marketplaces, and decentralized finance, without companies, without CEOs, and without permission.</p></div>
+    </div>
+    <div class="qa">
+      <div class="q">Q2. Why are there two aliens (green and orange)?</div>
+      <div class="a"><p>The two aliens represent the two protocols that ZB unites:</p><ul><li><strong>The Green Alien</strong> carries the symbol <strong>ZN</strong>, representing <strong>Zenon</strong> (feeless transactions, decentralized network).</li><li><strong>The Orange Alien</strong> carries the <strong>₿</strong> symbol, representing <strong>Bitcoin</strong> (hard money, fixed supply).</li></ul><p>Their fist-bump is not just art. It is the founding gesture of the project: two protocols meeting, two cultures uniting, one alien economy emerging.</p></div>
+    </div>
+    <div class="qa">
+      <div class="q">Q3. What is Zenon?</div>
+      <div class="a"><p>Zenon is a feeless dual-ledger Layer 1 blockchain launched in 2018 on the Bitcoin Talk forum, just like Bitcoin itself. It uses a hybrid Proof-of-Work + Proof-of-Stake consensus and a unique architecture combining a block-lattice with a meta-DAG called Momentums. Zenon has no foundation, no CEO, no ICO. It was launched fairly, just like Bitcoin.</p></div>
+    </div>
+    <div class="qa">
+      <div class="q">Q4. What does Bitcoin have to do with ZB?</div>
+      <div class="a"><p>Three things:</p><ol><li><strong>Philosophy.</strong> Both projects share the cypherpunk ethos: no founders, fair launch, sound money.</li><li><strong>Supply.</strong> ZB has 21,000,000 tokens, exactly like Bitcoin.</li><li><strong>Anchor.</strong> Zenon's genesis block embeds the hash of Bitcoin block #710,968, cryptographically tying the two networks to the same chain of time. ZB inherits this lineage by being native to Zenon.</li></ol></div>
+    </div>
+    <div class="qa">
+      <div class="q">Q5. How can I buy ZB?</div>
+      <div class="a"><p>Currently:</p><ol><li><strong>Get a Zenon wallet</strong>, download Syrius from <a href="https://github.com/zenon-network/syrius/releases" target="_blank" rel="noopener">https://github.com/zenon-network/syrius/releases</a></li><li><strong>Acquire some ZNN</strong>, the native coin of Zenon (available on a few exchanges, see CoinGecko)</li><li><strong>Swap ZNN for ZB</strong>, through community channels on the Zenon ecosystem</li></ol><p>Future phases will introduce direct DEX listings (Phase 03) and an EVM bridge (Phase 04) to make ZB accessible on Ethereum and BNB Smart Chain.</p></div>
+    </div>
+    <div class="qa">
+      <div class="q">Q6. What wallet do I need?</div>
+      <div class="a"><p>The official wallet for the Zenon Network is <strong>Syrius</strong>. It's non-custodial, open-source, and supports ZNN, QSR, and all ZTS tokens including ZB.</p><ul><li>Download: <a href="https://github.com/zenon-network/syrius/releases" target="_blank" rel="noopener">https://github.com/zenon-network/syrius/releases</a></li><li>Always download from the official GitHub repository.</li></ul></div>
+    </div>
+    <div class="qa">
+      <div class="q">Q7. What is the contract address? Why does it matter?</div>
+      <div class="a"><p>The official ZB contract address is:</p><pre><code>zts13sl7jccgrflw7u9rfsvzp7</code></pre><p>This is the <strong>only</strong> legitimate ZB. Anything else with the name "ZB" or "ZB Token" that does not match this address is a scam. Always verify before transacting.</p></div>
+    </div>
+    <div class="qa">
+      <div class="q">Q8. Is there a team behind ZB?</div>
+      <div class="a"><p>ZB is community-issued and intentionally has no public team. There is no foundation, no CEO, no LLC, no VC investors. The project follows the same model as Bitcoin and Zenon themselves, emerging from the network, not from a corporation.</p><p>You don't need to trust a team. You can verify everything on-chain.</p></div>
+    </div>
+    <div class="qa">
+      <div class="q">Q9. Why 21,000,000 specifically?</div>
+      <div class="a"><p>It's a deliberate philosophical commitment to Bitcoin's monetary cap. Bitcoin proved that finite supply changes everything. ZB inherits that lesson. The number is not random, it is a statement of values: scarcity, finiteness, immutability.</p></div>
+    </div>
+    <div class="qa">
+      <div class="q">Q10. Is ZB listed on Coinbase / Binance / Kraken?</div>
+      <div class="a"><p>Not yet. ZB is currently native to the Zenon Network only. Phase 04 of the roadmap (The Bridge) will deploy ZB to EVM chains (Ethereum, BSC), at which point CEX listings will be pursued. There are no guaranteed listing dates.</p></div>
+    </div>
+
+    <div class="level-divider">
+      <span class="level-tag blue">[ LEVEL_02 :: INTERMEDIATE ]</span>
+      <span class="level-line"></span>
+    </div>
+    <div class="qa">
+      <div class="q">Q11. Why Zenon and not Ethereum or BSC?</div>
+      <div class="a"><p>Several reasons:</p><ul><li><strong>Feeless transactions</strong>, perfect for game economies and microtransactions.</li><li><strong>No corporate founder</strong>, same cultural alignment as Bitcoin.</li><li><strong>Hybrid PoW + PoS</strong>, security inherited from both consensus models.</li><li><strong>Bitcoin anchoring</strong> — Zenon's genesis is cryptographically tied to Bitcoin block #710,968.</li></ul><p>We chose Zenon because it embodies the same cypherpunk values as Bitcoin, while solving the fee and scalability issues that make EVM chains impractical for high-frequency use.</p></div>
+    </div>
+    <div class="qa">
+      <div class="q">Q12. What is ZTS?</div>
+      <div class="a"><p>ZTS stands for <strong>Zenon Token Standard</strong>. It is the native token standard of the Zenon Network, the equivalent of ERC-20 on Ethereum. ZB is a ZTS token, meaning it inherits all the security properties and feeless transactions of the underlying network.</p></div>
+    </div>
+    <div class="qa">
+      <div class="q">Q13. Are there fees to transfer ZB?</div>
+      <div class="a"><p><strong>No.</strong> Transfers on the Zenon Network are feeless. However, they require <strong>Plasma</strong>, which is a non-monetary resource generated either by:</p><ul><li>Fusing QSR (the Plasma fuel coin of Zenon), or</li><li>Performing a small amount of local Proof-of-Work on your computer.</li></ul><p>Plasma is not consumed permanently, it regenerates over time. Think of it as bandwidth, not gas.</p></div>
+    </div>
+    <div class="qa">
+      <div class="q">Q14. What is Plasma exactly?</div>
+      <div class="a"><p>Plasma is Zenon's anti-spam and resource allocation mechanism. Instead of charging fees per transaction (like Ethereum gas), Zenon allocates "transaction bandwidth" through Plasma. You either fuse QSR to your account to give it permanent Plasma, or you do a quick PoW computation to generate temporary Plasma. Either way: no transaction fees, ever.</p></div>
+    </div>
+    <div class="qa">
+      <div class="q">Q15. How do I verify my ZB is authentic?</div>
+      <div class="a"><p>Always check the contract address. The only real ZB is <code>zts13sl7jccgrflw7u9rfsvzp7</code>. You can verify on:</p><ul><li><a href="https://zenon.tools/tokens/zts13sl7jccgrflw7u9rfsvzp7" target="_blank" rel="noopener">https://zenon.tools/tokens/zts13sl7jccgrflw7u9rfsvzp7</a></li><li><a href="https://explorer.zenon.info/" target="_blank" rel="noopener">https://explorer.zenon.info/</a></li></ul><p>If the token in your wallet shows a different ZTS address, it is not genuine ZB.</p></div>
+    </div>
+    <div class="qa">
+      <div class="q">Q16. Is ZB inflationary?</div>
+      <div class="a"><p><strong>No.</strong> 100% of the supply (21,000,000 ZB) was minted at genesis. There is no continuous emission, no staking inflation, no minting schedule. The supply is already fully circulating.</p><p>The contract technically retains mint authority until Phase 02 (Immutability), at which point that authority will be permanently revoked on-chain.</p></div>
+    </div>
+    <div class="qa">
+      <div class="q">Q17. Is there team allocation, vesting, or insider unlocks?</div>
+      <div class="a"><p><strong>No.</strong></p><ul><li>No team allocation</li><li>No advisor allocation</li><li>No foundation reserve</li><li>No vesting schedule</li><li>No cliffs</li><li>No private sale</li><li>No VC round</li></ul><p>Every ZB that exists today is identical to every ZB that will exist forever.</p></div>
+    </div>
+    <div class="qa">
+      <div class="q">Q18. How did the initial distribution work?</div>
+      <div class="a"><p>Through several transparent on-chain mechanisms:</p><ul><li><strong>An automatic faucet</strong> that allowed any holder of a Zenon address to claim free ZB without KYC, whitelist, or signup.</li><li><strong>Community contests</strong> with ZB rewards distributed directly to winners.</li><li><strong>Direct transfers</strong> to early supporters and contributors.</li></ul><p>All distributions are publicly auditable. Inspect the deployment address on Zenon Explorer to see every transfer ever made.</p></div>
+    </div>
+    <div class="qa">
+      <div class="q">Q19. Will there be an EVM bridge?</div>
+      <div class="a"><p><strong>Yes</strong>, it's Phase 04 of the roadmap. A wrapped version (wZB) will be deployed on Ethereum and BNB Smart Chain, allowing:</p><ul><li>Liquidity provision on EVM-based DEXs</li><li>Composability with DeFi (lending, vaults, yield farming)</li><li>Greater accessibility for users without a Zenon wallet</li></ul><p>No fixed timeline. The bridge ships when it's ready and tested.</p></div>
+    </div>
+    <div class="qa">
+      <div class="q">Q20. What is the roadmap exactly?</div>
+      <div class="a"><p>There are 8 phases:</p><ul><li><strong>Phase 00 — Genesis</strong> ✅ (Token deployed, 21M minted, May 11, 2024)</li><li><strong>Phase 01 — The Landing</strong> 🔄 (Website, manifesto, whitepaper, community)</li><li><strong>Phase 02 — Immutability</strong> 📋 (Renounce mint/burn authority)</li><li><strong>Phase 03 — Organic Growth</strong> 📋 (No initial pool, community-driven distribution, P2P trades)</li><li><strong>Phase 04 — The Game</strong> 🔒 (Pillars × Protocols arena game, free-to-play first)</li><li><strong>Phase 05 — The Bridge</strong> 🔒 (EVM bridge integration when ready)</li><li><strong>Phase 06 — The Marketplace</strong> 🔒 (NFTs, P2P trading)</li><li><strong>Phase ∞ — The Galaxy</strong> ♾️ (Community-led expansion, open-source ecosystem)</li></ul><p>No fixed dates. Phases ship when ready.</p></div>
+    </div>
+
+    <div class="level-divider">
+      <span class="level-tag purple">[ LEVEL_03 :: ADVANCED ]</span>
+      <span class="level-line"></span>
+    </div>
+    <div class="qa">
+      <div class="q">Q21. What is the QSR formula for Pillars?</div>
+      <div class="a"><p>Spawning a new Pillar on Zenon costs:</p><pre><code>15,000 ZNN + max(0, (number_of_pillars − 136 + 1)) × 10,000 + 150,000 QSR</code></pre><p>The QSR is <strong>permanently burned</strong> upon Pillar registration. As the network grows beyond 136 Pillars, each new Pillar requires increasingly more QSR, a deflationary mechanism that aligns commitment with scarcity. Today, deploying a new Pillar burns several hundred thousand QSR.</p></div>
+    </div>
+    <div class="qa">
+      <div class="q">Q22. Why is Bitcoin block #710,968 important?</div>
+      <div class="a"><p>On November 23rd, 2021 at 11:01:13 UTC, Bitcoin block #710,968 was mined. Approximately 25 hours later, on November 24th, 2021 at 12:00:00 UTC, the Zenon Network produced its genesis block. Embedded within Zenon's genesis is the full 256-bit hash of Bitcoin block #710,968.</p><p>This is <strong>not symbolic</strong>, it is cryptographic proof. Because no one can predict a future Bitcoin block hash, including #710,968's hash in Zenon's genesis proves that Zenon could not have existed before that moment in Bitcoin's chain of time. It's a passive notarization, in the spirit of Peter Todd's OpenTimestamps.</p><p>ZB inherits this lineage by being native to Zenon.</p></div>
+    </div>
+    <div class="qa">
+      <div class="q">Q23. What is the ExtraData field of Zenon Genesis?</div>
+      <div class="a"><p>In Zenon's genesis block, the <code>ExtraData</code> field contains the full hash of Bitcoin block #710,968. This is how Zenon anchors its existence to Bitcoin's chain of time. The data is publicly verifiable through any Zenon explorer.</p><p>This anchoring is one of the most under-appreciated technical details of the Zenon network, and it's a major reason ZB chose Zenon as its home chain.</p></div>
+    </div>
+    <div class="qa">
+      <div class="q">Q24. How does Zenon's hybrid PoW + PoS consensus work?</div>
+      <div class="a"><p>Zenon combines two consensus models:</p><ul><li><strong>Proof-of-Stake</strong> via 30 voting Pillars selected every 5 minutes from the active Pillar set, who collectively validate Momentums (consensus blocks produced every 10 seconds).</li><li><strong>Proof-of-Work</strong> via "PoW Links": a small computational requirement on each individual transaction, providing sybil resistance at the account level.</li></ul><p>This dual layer provides both speed and decentralization without committing fully to the energy footprint of pure PoW or the wealth-concentration risks of pure PoS.</p></div>
+    </div>
+    <div class="qa">
+      <div class="q">Q25. What is the risk that the owner mints more tokens?</div>
+      <div class="a"><p>Until Phase 02 (Immutability) is completed, the contract owner technically retains the ability to mint or burn ZB tokens. This is a transparent, on-chain fact, not hidden.</p><p><strong>Mitigation:</strong></p><ul><li>The intention has always been to renounce these privileges.</li><li>Phase 02 will permanently revoke them via an on-chain transaction.</li><li>The transaction will be publicly auditable.</li></ul><p>Until then, holders should be aware of this risk. Trust will be fully established only after Phase 02 is executed.</p></div>
+    </div>
+    <div class="qa">
+      <div class="q">Q26. When exactly is Phase 02 (Immutability)?</div>
+      <div class="a"><p>There is no fixed date. The intention is to execute Phase 02 as soon as the project's foundational infrastructure (website, whitepaper, community channels) is established, likely shortly after the public launch.</p><p>When it happens, the renunciation transactions will be announced publicly with on-chain proof.</p></div>
+    </div>
+    <div class="qa">
+      <div class="q">Q27. Will ZB ever be as auditable as Bitcoin?</div>
+      <div class="a"><p>Already is. Every transaction, every balance, every distribution is publicly visible on:</p><ul><li><a href="https://zenon.tools/tokens/zts13sl7jccgrflw7u9rfsvzp7" target="_blank" rel="noopener">https://zenon.tools/tokens/zts13sl7jccgrflw7u9rfsvzp7</a></li><li><a href="https://explorer.zenon.info/" target="_blank" rel="noopener">https://explorer.zenon.info/</a></li></ul><p>Like Bitcoin, the chain is the source of truth. There is no hidden ledger, no off-chain agreements, no private allocations.</p></div>
+    </div>
+    <div class="qa">
+      <div class="q">Q28. Is the project open source?</div>
+      <div class="a"><p>The Zenon Network protocol itself is fully open source. The ZB token contract uses the standard ZTS implementation, which is also open source.</p><p>Future ecosystem components (game, marketplace, bridge) will be developed with open-source principles, though specific licensing decisions will be made on a per-component basis.</p></div>
+    </div>
+    <div class="qa">
+      <div class="q">Q29. How can I contribute to ZB?</div>
+      <div class="a"><p>Multiple ways:</p><ul><li><strong>Hold and use ZB</strong>, the simplest contribution to any decentralized project.</li><li><strong>Run a Zenon node</strong>, strengthen the underlying network.</li><li><strong>Build something</strong>, games, tools, integrations, art, lore.</li><li><strong>Spread the message</strong>, share the manifesto, the easter eggs, the philosophy.</li><li><strong>Find the easter eggs</strong>, the manifesto contains hidden cypherpunk references. Decode them. Share what you find.</li></ul></div>
+    </div>
+    <div class="qa">
+      <div class="q">Q30. What are the easter eggs hidden in the manifesto?</div>
+      <div class="a"><p>There are several:</p><ul><li>The signed address <code>1A1zP1eP5QGefi2DMPTfTL5...</code> is the real Bitcoin address from Satoshi's genesis block.</li><li>The anchor <code>btc::block #710,968</code> references the actual Bitcoin block embedded in Zenon's genesis.</li><li>The genesis date <code>24/NOV/2021 → 12:00:00 UTC</code> is the real birth of Zenon.</li><li>The hidden cipher passage references the actual Bitcoin Genesis message.</li><li>The footer hash <code>extradata::6a4b...c0de</code> is a placeholder for a future revelation.</li></ul><p>If you understand, you understand.</p></div>
+    </div>
+
+    <div class="level-divider">
+      <span class="level-tag red">[ SECURITY ]</span>
+      <span class="level-line"></span>
+    </div>
+    <div class="qa">
+      <div class="q">Q31. How do I avoid ZB scams?</div>
+      <div class="a"><p>Three rules:</p><ol><li><strong>Always verify the contract address.</strong> Real ZB = <code>zts13sl7jccgrflw7u9rfsvzp7</code>. Anything else = scam.</li><li><strong>Never give your seed phrase.</strong> No legitimate person will ever ask for it.</li><li><strong>Use only the official channels.</strong> X: @ZBTOKENOfficial. Telegram: t.me/ZBTOKENOfficial.</li></ol></div>
+    </div>
+    <div class="qa">
+      <div class="q">Q32. What is the only legitimate contract address?</div>
+      <div class="a"><pre><code>zts13sl7jccgrflw7u9rfsvzp7</code></pre><p>That's it. No other ZTS address is genuine ZB. If you see a "ZB" with a different address, it is a scam.</p></div>
+    </div>
+    <div class="qa">
+      <div class="q">Q33. What if I think I've been scammed?</div>
+      <div class="a"><p>Unfortunately, blockchain transactions are irreversible. If you sent funds to a scam contract or address, the funds are likely lost. There is no central authority to refund you.</p><p><strong>Lessons:</strong></p><ul><li>Always verify the contract address against the official one.</li><li>Never connect your wallet to unknown sites.</li><li>Never share your seed phrase, period.</li></ul><p>Going forward, double-check every transaction before signing.</p></div>
+    </div>
+    <div class="qa">
+      <div class="q">Q34. How do I protect my wallet?</div>
+      <div class="a"><ul><li><strong>Hardware wallet</strong> if possible (Trezor, Ledger).</li><li><strong>Seed phrase written on paper</strong>, stored in two separate physical locations.</li><li><strong>Never type your seed phrase into a website.</strong></li><li><strong>Never take a photo of your seed phrase.</strong></li><li><strong>Never share your seed phrase, even with "support."</strong></li></ul></div>
+    </div>
+    <div class="qa">
+      <div class="q">Q35. What if I lose my seed phrase?</div>
+      <div class="a"><p>Your funds are gone. Period. There is no recovery, no support, no backup. This is the trade-off of self-custody: total sovereignty, total responsibility.</p><p>This is why we say <em>"not your keys, not your coins."</em> The corollary is: <em>if your keys are gone, your coins are gone.</em></p></div>
+    </div>
+
+    <div class="level-divider">
+      <span class="level-tag orange">[ LEGAL ]</span>
+      <span class="level-line"></span>
+    </div>
+    <div class="qa">
+      <div class="q">Q36. Is ZB an investment?</div>
+      <div class="a"><p><strong>No.</strong> ZB is a utility token designed to function as the native currency of an alien economy. It is not a security, not a debt instrument, and not an investment contract. There are no promises of returns, no profit-sharing, no dividends.</p></div>
+    </div>
+    <div class="qa">
+      <div class="q">Q37. Is there a risk of loss?</div>
+      <div class="a"><p><strong>Yes, significant.</strong> Like all cryptocurrencies, ZB is volatile and may lose all of its value. You could lose everything you put in. Do not put in more than you can afford to lose. This is not financial advice.</p></div>
+    </div>
+    <div class="qa">
+      <div class="q">Q38. Is ZB legal in my country?</div>
+      <div class="a"><p>Cryptocurrency regulation varies dramatically by jurisdiction and is constantly evolving. It is your responsibility to understand and comply with the laws in your country. The ZB project does not provide legal advice.</p></div>
+    </div>
+    <div class="qa">
+      <div class="q">Q39. What are the official disclaimers?</div>
+      <div class="a"><ul><li><strong>Not financial advice.</strong> Nothing in this FAQ, the whitepaper, or the website constitutes financial, legal, or tax advice.</li><li><strong>No guarantees.</strong> No party guarantees the price, liquidity, or utility of ZB.</li><li><strong>High risk.</strong> Cryptocurrencies are volatile and can lose value rapidly.</li><li><strong>Self-custody.</strong> You are responsible for your own wallet security and seed phrase.</li><li><strong>Use at your own risk.</strong> Participation in the ZB ecosystem is entirely voluntary.</li></ul></div>
+    </div>
+
+    <div class="level-divider">
+      <span class="level-tag orange">[ THE_GAME ]</span>
+      <span class="level-line"></span>
+    </div>
+
+    <div class="qa">
+      <div class="q">Q40. Will the game be free to play?</div>
+      <div class="a"><p><strong>Yes, the core experience will be free to play.</strong> Connect your wallet, choose your alien, enter an arena. No paywall to start playing. The goal is to have a fun game first, an economy second.</p></div>
+    </div>
+    <div class="qa">
+      <div class="q">Q41. Will there be costs inside the game?</div>
+      <div class="a"><p>The game itself is free to play, but it will have an in-game economy where players can <em>optionally</em> spend ZB on:</p><ul><li><strong>Cosmetic NFT skins</strong> — ship designs, alien customization (no gameplay advantage)</li><li><strong>Tournament entry fees</strong> — entering competitive tournaments with ZB pots</li><li><strong>Marketplace items</strong> — buying or selling cosmetics from other players</li><li><strong>Premium aliens</strong> — exclusive avatars (like the rumored ZB ∞ Hybrid) that require effort and ZB to unlock</li></ul><p>These are <strong>optional purchases for those who want them</strong>, not gates to play. Skill-affecting upgrades will only be earnable through gameplay — never paid for. <strong>No pay-to-win.</strong></p></div>
+    </div>
+    <div class="qa">
+      <div class="q">Q42. How much will the game cost to develop?</div>
+      <div class="a"><p>Game development is funded from the <strong>ZB Assembly Treasury (35.75% of supply, 7.5M ZB)</strong> and the <strong>Game Economy allocation (30%, 6.3M ZB)</strong>. Total estimated budget: ~2.5M ZB over 3 years for development, design, audits, and launch. The exact amounts are decided phase by phase, with full on-chain transparency on every payment.</p></div>
+    </div>
+    <div class="qa">
+      <div class="q">Q43. When will the game be playable?</div>
+      <div class="a"><p>Game development is a <strong>long-term commitment (2-5 years)</strong> done right, not fast. The roadmap progresses in phases: prototype → alpha → beta → public launch. Each phase delivers something playable to the community. We do not promise specific dates — the game ships when it is ready.</p></div>
+    </div>
+    <div class="qa">
+      <div class="q">Q44. Can I earn ZB by playing?</div>
+      <div class="a"><p>Yes — <strong>but only when the world is alive.</strong> The Play-to-Earn rewards activate progressively, once the game has a real player base, not at launch. This avoids the typical death spiral of P2E games where the economy collapses because rewards exceed real demand. Rewards are skill-based: better players earn more.</p></div>
+    </div>
+    <div class="qa">
+      <div class="q">Q45. What chains can I bring into the game?</div>
+      <div class="a"><p>The vision is multi-chain inclusive: connect your wallet, and you may be able to choose alien avatars themed after various crypto tribes (the exact list will be defined by the community as the game develops). The core remains <strong>ZB on Zenon</strong>, but the game welcomes the broader crypto multiverse. Specific integrations depend on technical feasibility and community priorities.</p></div>
+    </div>
+
+    <div class="level-divider">
+      <span class="level-tag orange">[ OFFICIAL_LINKS ]</span>
+      <span class="level-line"></span>
+    </div>
+
+  </main>
+
+  <footer class="doc-footer">
+    <div class="links">
+      <a href="https://x.com/ZBTOKENOfficial" target="_blank" rel="noopener">X</a>
+      <a href="https://t.me/ZBTOKENOfficial" target="_blank" rel="noopener">TELEGRAM</a>
+      <a href="https://zenon.tools/tokens/zts13sl7jccgrflw7u9rfsvzp7" target="_blank" rel="noopener">EXPLORER</a>
+    </div>
+    <a href="index.html" class="back-link">← RETURN_TO_HUB</a>
+    <div class="signature">// extradata::6a4b...c0de, those who know, know.</div>
+  </footer>
+
+<script src="effects.js"></script>
+<script src="zb-menu.js"></script>
+</body>
+</html>

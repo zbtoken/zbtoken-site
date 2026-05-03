@@ -1,0 +1,382 @@
+<!--
+  ZB_TOKEN :: SIGNAL.html
+  // community signal wall
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ZB TOKEN :: SIGNAL WALL</title>
+  <meta name="description" content="The Signal Wall. Where the alien community speaks. Connect, share, contribute.">
+  <link rel="stylesheet" href="shared.css">
+  <style>
+    body {
+      background: #000;
+      margin: 0;
+      padding: 0;
+    }
+    .subpage-topbar {
+      position: relative;
+      z-index: 10;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 40px;
+      border-bottom: 1px solid rgba(0, 232, 61, 0.2);
+      font-size: 12px;
+      letter-spacing: 2px;
+      background: rgba(0, 0, 0, 0.85);
+      backdrop-filter: blur(6px);
+    }
+    .subpage-topbar a {
+      color: rgba(255, 255, 255, 0.6);
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+    .subpage-topbar a:hover {
+      color: #00E83D;
+    }
+    .subpage-back {
+      color: rgba(0, 232, 61, 0.7);
+    }
+    .signal-wrap {
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 60px 40px 80px;
+      color: rgba(255, 255, 255, 0.85);
+      font-family: 'Courier New', monospace;
+      position: relative;
+      z-index: 5;
+    }
+    .signal-header {
+      text-align: center;
+      margin-bottom: 60px;
+    }
+    .signal-tag {
+      color: rgba(0, 232, 61, 0.85);
+      font-size: 12px;
+      letter-spacing: 6px;
+      margin-bottom: 16px;
+    }
+    .signal-title {
+      font-size: clamp(36px, 6vw, 56px);
+      font-weight: 900;
+      letter-spacing: 6px;
+      background: linear-gradient(90deg, #00E83D, #fff, #FF8C1A);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 18px;
+    }
+    .signal-subtitle {
+      color: rgba(255, 255, 255, 0.55);
+      font-size: 13px;
+      letter-spacing: 4px;
+    }
+    .signal-intro {
+      max-width: 720px;
+      margin: 0 auto 60px;
+      padding: 24px 28px;
+      background: rgba(0, 232, 61, 0.04);
+      border-left: 2px solid rgba(0, 232, 61, 0.5);
+      font-size: 14px;
+      line-height: 1.8;
+      color: rgba(255, 255, 255, 0.75);
+    }
+    .signal-intro strong {
+      color: #00E83D;
+    }
+    .channels-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 18px;
+      margin-bottom: 60px;
+    }
+    .channel-card {
+      display: block;
+      padding: 28px 24px;
+      border: 1px solid rgba(0, 232, 61, 0.25);
+      background: rgba(0, 232, 61, 0.02);
+      text-decoration: none;
+      transition: all 0.3s;
+      position: relative;
+      overflow: hidden;
+    }
+    .channel-card.orange {
+      border-color: rgba(255, 140, 26, 0.25);
+      background: rgba(255, 140, 26, 0.02);
+    }
+    .channel-card:hover {
+      background: rgba(0, 232, 61, 0.08);
+      box-shadow: 0 0 30px rgba(0, 232, 61, 0.2);
+      transform: translateY(-2px);
+    }
+    .channel-card.orange:hover {
+      background: rgba(255, 140, 26, 0.08);
+      box-shadow: 0 0 30px rgba(255, 140, 26, 0.2);
+    }
+    .channel-icon {
+      font-size: 28px;
+      margin-bottom: 14px;
+    }
+    .channel-name {
+      color: #fff;
+      font-size: 13px;
+      letter-spacing: 3px;
+      font-weight: bold;
+      margin-bottom: 8px;
+    }
+    .channel-purpose {
+      color: rgba(0, 232, 61, 0.8);
+      font-size: 10px;
+      letter-spacing: 2px;
+      margin-bottom: 14px;
+    }
+    .channel-card.orange .channel-purpose {
+      color: rgba(255, 140, 26, 0.8);
+    }
+    .channel-desc {
+      color: rgba(255, 255, 255, 0.55);
+      font-size: 11px;
+      line-height: 1.6;
+      letter-spacing: 0.5px;
+    }
+    .channel-arrow {
+      position: absolute;
+      top: 24px;
+      right: 24px;
+      color: rgba(0, 232, 61, 0.6);
+      font-size: 16px;
+    }
+    .channel-card.orange .channel-arrow {
+      color: rgba(255, 140, 26, 0.6);
+    }
+
+    .section-h {
+      color: rgba(0, 232, 61, 0.85);
+      font-size: 13px;
+      letter-spacing: 6px;
+      margin: 60px 0 24px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid rgba(0, 232, 61, 0.2);
+    }
+    .section-h.orange {
+      color: rgba(255, 140, 26, 0.85);
+      border-color: rgba(255, 140, 26, 0.2);
+    }
+
+    .principles-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 16px;
+    }
+    .principle-card {
+      padding: 22px 20px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      background: rgba(255, 255, 255, 0.02);
+    }
+    .principle-num {
+      color: rgba(0, 232, 61, 0.7);
+      font-size: 10px;
+      letter-spacing: 4px;
+      margin-bottom: 10px;
+    }
+    .principle-title {
+      color: #fff;
+      font-size: 14px;
+      letter-spacing: 3px;
+      font-weight: bold;
+      margin-bottom: 12px;
+    }
+    .principle-text {
+      color: rgba(255, 255, 255, 0.6);
+      font-size: 11px;
+      line-height: 1.7;
+    }
+
+    .quote-block {
+      max-width: 640px;
+      margin: 60px auto 0;
+      padding: 32px;
+      text-align: center;
+      border-top: 1px solid rgba(255, 140, 26, 0.3);
+      border-bottom: 1px solid rgba(255, 140, 26, 0.3);
+    }
+    .quote-text {
+      color: #fff;
+      font-size: clamp(16px, 2.4vw, 22px);
+      line-height: 1.6;
+      letter-spacing: 2px;
+      font-style: italic;
+      margin-bottom: 14px;
+    }
+    .quote-text .hl-orange { color: #FF8C1A; font-weight: bold; }
+    .quote-text .hl-green { color: #00E83D; font-weight: bold; }
+    .quote-attr {
+      color: rgba(255, 255, 255, 0.4);
+      font-size: 10px;
+      letter-spacing: 4px;
+    }
+  </style>
+<link rel="stylesheet" href="zb-menu.css">
+</head>
+<body>
+
+<!-- Background canvas -->
+<canvas id="bg" style="position: fixed; inset: 0; z-index: 1; pointer-events: none;"></canvas>
+
+<div class="subpage-topbar">
+  <a href="index.html" class="subpage-back">← BASE</a>
+  <a href="index.html">// ZB_TOKEN_SIGNAL_WALL //</a>
+  <a href="manifesto.html">MANIFESTO →</a>
+</div>
+
+<div class="signal-wrap">
+
+  <div class="signal-header">
+    <div class="signal-tag">// CONNECTION_ESTABLISHED //</div>
+    <h1 class="signal-title">THE SIGNAL WALL</h1>
+    <div class="signal-subtitle">// where the alien community speaks //</div>
+  </div>
+
+  <div class="signal-intro">
+    <p>
+      The <strong>Signal Wall</strong> is where you connect with the wider alien tribe. ZB doesn't have a centralized comment section — that would mean centralized servers, centralized moderation, centralized control. <strong>That is not the way.</strong>
+    </p>
+    <p style="margin-top: 14px;">
+      Instead, the community lives across <strong>open, censorship-resistant channels</strong>. Pick the channel that fits your message. Share your thoughts. Build the network. The chain remembers, the community listens.
+    </p>
+  </div>
+
+  <h3 class="section-h">[ COMMUNITY_CHANNELS ]</h3>
+
+  <div class="channels-grid">
+
+    <a href="https://forum.zenon.org" target="_blank" rel="noopener" class="channel-card">
+      <div class="channel-arrow">↗</div>
+      <div class="channel-icon">🛸</div>
+      <div class="channel-name">FORUM ZENON</div>
+      <div class="channel-purpose">// LONG-FORM // PROPOSALS //</div>
+      <div class="channel-desc">
+        For deep discussions, project proposals, technical questions, and structured feedback. The Assembly listens here. Tag posts with <code style="color:#00E83D;">ZB</code>.
+      </div>
+    </a>
+
+    <a href="https://t.me/ZBTOKENOfficial" target="_blank" rel="noopener" class="channel-card orange">
+      <div class="channel-arrow">↗</div>
+      <div class="channel-icon">💬</div>
+      <div class="channel-name">TELEGRAM</div>
+      <div class="channel-purpose">// REAL-TIME // CHAT //</div>
+      <div class="channel-desc">
+        Real-time community chat. Share ideas, ask questions, meet other aliens, drop memes. The fastest way to engage with the tribe.
+      </div>
+    </a>
+
+    <a href="https://x.com/ZBTOKENOfficial" target="_blank" rel="noopener" class="channel-card">
+      <div class="channel-arrow">↗</div>
+      <div class="channel-icon">📡</div>
+      <div class="channel-name">X / TWITTER</div>
+      <div class="channel-purpose">// BROADCAST // SIGNAL //</div>
+      <div class="channel-desc">
+        Public broadcasts, news, art, and announcements. Follow, repost, and amplify the signal across the multiverse.
+      </div>
+    </a>
+
+    <a href="https://github.com/zbtoken" target="_blank" rel="noopener" class="channel-card orange">
+      <div class="channel-arrow">↗</div>
+      <div class="channel-icon">⌬</div>
+      <div class="channel-name">GITHUB</div>
+      <div class="channel-purpose">// CODE // CONTRIBUTIONS //</div>
+      <div class="channel-desc">
+        For builders, developers, contributors. Browse the code, open issues, submit pull requests. The cypherpunk way to participate.
+      </div>
+    </a>
+
+  </div>
+
+  <h3 class="section-h orange">[ HOW_TO_CONTRIBUTE ]</h3>
+
+  <div class="principles-grid">
+
+    <div class="principle-card">
+      <div class="principle-num">// 01 //</div>
+      <div class="principle-title">SHARE</div>
+      <div class="principle-text">
+        Tell the story. Share zbtoken.org. Repost the signal. The protocol grows when more aliens hear the transmission.
+      </div>
+    </div>
+
+    <div class="principle-card">
+      <div class="principle-num">// 02 //</div>
+      <div class="principle-title">CREATE</div>
+      <div class="principle-text">
+        Make art, memes, videos, code, articles. Express the cypherpunk vision through your craft. The Assembly may reward valuable contributions.
+      </div>
+    </div>
+
+    <div class="principle-card">
+      <div class="principle-num">// 03 //</div>
+      <div class="principle-title">DISCUSS</div>
+      <div class="principle-text">
+        Bring ideas to the forum. Propose improvements. Question what's unclear. The protocol evolves through honest debate.
+      </div>
+    </div>
+
+    <div class="principle-card">
+      <div class="principle-num">// 04 //</div>
+      <div class="principle-title">BUILD</div>
+      <div class="principle-text">
+        Are you a developer, designer, writer, organizer? Open an issue on GitHub or post on the forum. Skilled contributors are funded by the Assembly.
+      </div>
+    </div>
+
+  </div>
+
+  <div class="quote-block">
+    <div class="quote-text">
+      "The protocol is the message.<br>
+      <span class="hl-green">The chain</span> is the memory.<br>
+      <span class="hl-orange">The community</span> is the signal."
+    </div>
+    <div class="quote-attr">// ZB :: SIGNAL_WALL //</div>
+  </div>
+
+</div>
+
+<!-- Subtle animated stars background -->
+<script>
+  const canvas = document.getElementById('bg');
+  const ctx = canvas.getContext('2d');
+  let stars = [];
+  function resize() {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+    stars = Array.from({length: 80}, () => ({
+      x: Math.random() * canvas.width,
+      y: Math.random() * canvas.height,
+      r: Math.random() * 1.5,
+      a: Math.random() * 0.6,
+      vy: 0.05 + Math.random() * 0.1
+    }));
+  }
+  resize();
+  window.addEventListener('resize', resize);
+  function loop() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    stars.forEach(s => {
+      ctx.beginPath();
+      ctx.arc(s.x, s.y, s.r, 0, Math.PI*2);
+      ctx.fillStyle = `rgba(255,255,255,${s.a})`;
+      ctx.fill();
+      s.y += s.vy;
+      if (s.y > canvas.height) { s.y = 0; s.x = Math.random() * canvas.width; }
+    });
+    requestAnimationFrame(loop);
+  }
+  loop();
+</script>
+
+<script src="zb-menu.js"></script>
+</body>
+</html>

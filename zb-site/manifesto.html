@@ -1,0 +1,295 @@
+<!--
+  ZB_TOKEN :: MANIFESTO.html
+  // the cypherpunk founding text
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ZB TOKEN :: MANIFESTO</title>
+  <meta name="description" content="The cypherpunk manifesto of ZB Token. No company. No CEO. No bullshit.">
+  <link rel="stylesheet" href="shared.css">
+  <style>
+    body {
+      background: #000;
+      margin: 0;
+      padding: 0;
+    }
+    .subpage-topbar {
+      position: relative;
+      z-index: 10;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 40px;
+      border-bottom: 1px solid rgba(0, 232, 61, 0.2);
+      font-size: 12px;
+      letter-spacing: 2px;
+      background: rgba(0, 0, 0, 0.85);
+      backdrop-filter: blur(6px);
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+    .subpage-topbar .left { display: flex; gap: 20px; align-items: center; }
+    .subpage-topbar .nav { display: flex; gap: 22px; flex-wrap: wrap; }
+    .subpage-topbar .nav a {
+      color: rgba(0, 232, 61, 0.7);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .subpage-topbar .nav a:hover, .subpage-topbar .nav a.active { color: #00E83D; }
+    .subpage-topbar .nav a.orange-link { color: rgba(255, 140, 26, 0.85); }
+    .subpage-topbar .nav a.orange-link:hover { color: #FF8C1A; }
+
+    .subpage-header {
+      position: relative;
+      z-index: 5;
+      padding: 70px 40px 30px;
+      text-align: center;
+      border-bottom: 1px solid rgba(0, 232, 61, 0.15);
+    }
+    .subpage-label {
+      color: #FF8C1A;
+      font-size: 12px;
+      letter-spacing: 4px;
+      margin-bottom: 14px;
+      opacity: 0.85;
+    }
+    .subpage-title {
+      font-family: 'Arial Black', Impact, sans-serif;
+      font-size: clamp(34px, 6vw, 64px);
+      font-weight: 900;
+      letter-spacing: 4px;
+      color: #fff;
+      margin-bottom: 14px;
+      text-shadow: 0 0 30px rgba(0, 232, 61, 0.4);
+    }
+    .subpage-subtitle {
+      color: rgba(0, 232, 61, 0.65);
+      font-size: 13px;
+      letter-spacing: 2px;
+      font-style: italic;
+    }
+    .subpage-footer {
+      position: relative;
+      z-index: 5;
+      padding: 50px 40px 30px;
+      border-top: 1px solid rgba(0, 232, 61, 0.2);
+      background: rgba(0, 0, 0, 0.7);
+      text-align: center;
+    }
+    .subpage-footer .links {
+      display: flex;
+      justify-content: center;
+      gap: 22px;
+      flex-wrap: wrap;
+      margin-bottom: 18px;
+    }
+    .subpage-footer .links a {
+      color: rgba(0, 232, 61, 0.7);
+      text-decoration: none;
+      font-size: 11px;
+      letter-spacing: 2px;
+    }
+    .subpage-footer .links a:hover { color: #00E83D; }
+    .subpage-footer .back-link {
+      display: inline-block;
+      color: #FF8C1A;
+      text-decoration: none;
+      font-size: 12px;
+      letter-spacing: 3px;
+      border: 1px solid #FF8C1A;
+      padding: 10px 24px;
+      margin-top: 16px;
+      transition: all 0.2s;
+    }
+    .subpage-footer .back-link:hover {
+      background: #FF8C1A;
+      color: #000;
+      box-shadow: 0 0 20px rgba(255, 140, 26, 0.5);
+    }
+    .subpage-footer .signature {
+      color: rgba(0, 232, 61, 0.4);
+      font-size: 10px;
+      letter-spacing: 2px;
+      margin-top: 24px;
+    }
+
+    /* Override section-padding for sub-pages: less top padding since we have own header */
+    section { padding-top: 60px !important; }
+
+    @media (max-width: 768px) {
+      .subpage-topbar { padding: 14px 16px; }
+      .subpage-topbar .nav { gap: 12px; font-size: 10px; }
+      .subpage-header { padding: 50px 20px 25px; }
+    }
+  </style>
+<link rel="stylesheet" href="zb-menu.css">
+</head>
+<body class="subpage-wrapper">
+
+  <div class="grid-bg"></div>
+  <div class="scanlines"></div>
+
+  <div class="subpage-topbar">
+    <div class="left">
+      <div class="status">
+        <span class="status-dot"></span>
+        <span>MANIFESTO_LOADED</span>
+      </div>
+      <span style="opacity: 0.5;">// ZB_TOKEN :: v1.0</span>
+    </div>
+  </div>
+
+  <header class="subpage-header">
+    <div class="subpage-label">[ DOCUMENT_01 ]  //  THE_MANIFESTO.txt</div>
+    <h1 class="subpage-title">THE <span style="color:#FF8C1A;">MANIFESTO</span></h1>
+    <div class="subpage-subtitle">// the cypherpunk founding text //</div>
+  </header>
+
+  <main>
+<!-- ==================== MANIFESTO SECTION ==================== -->
+<section id="manifesto" class="manifesto-section">
+  <div class="manifesto-grid-bg"></div>
+
+  <div class="section-header">
+    <div class="section-label">
+      <span class="orange">[ 01 ]</span> &nbsp;//&nbsp; THE_MANIFESTO.txt
+    </div>
+    <div class="section-divider"></div>
+  </div>
+
+  <div class="manifesto-content">
+    <div class="doc-header">
+      <div class="doc-header-line"><span class="dim">FILE:</span> manifesto_v1.txt</div>
+      <div class="doc-header-line"><span class="dim">AUTHOR:</span> anon</div>
+      <div class="doc-header-line"><span class="dim">SIGNED:</span> <span class="hash">1A1zP1eP5QGefi2DMPTfTL5...</span></div>
+      <div class="doc-header-line"><span class="dim">ANCHOR:</span> <span class="hash">btc::block #710,968</span></div>
+      <div class="doc-header-line"><span class="dim">GENESIS:</span> <span class="hash">24/NOV/2021 → 12:00:00 UTC</span></div>
+      <div class="doc-header-line"><span class="dim">STATUS:</span> <span style="color:#00E83D;">[ VERIFIED ]</span></div>
+    </div>
+
+    <div class="manifesto-text">
+      <p class="lead">
+        They control the money.<br>
+        They control the rules.<br>
+        They control <span class="strike">everything</span>.
+      </p>
+
+      <p class="break"><span class="orange">// BUT NOT FOR LONG.</span></p>
+
+      <p>For decades, a quiet war has been fought in the shadows of the internet, a war for <span class="hl">privacy</span>, for <span class="hl">freedom</span>, for the right to transact without permission. <span class="hl-orange" data-hint="cypherpunks-write-code">Cypherpunks write code</span>. We don't ask. We don't beg. We <span class="hl-orange">build</span>.</p>
+
+      <p>On <span class="hl-orange" data-hint="03-jan-2009">a cold day in January</span>, an anon dropped a <span class="hl" data-hint="bitcoin-whitepaper">9-page document</span> into a mailing list and disappeared into the void. <span class="hl-orange" data-hint="satoshi">He</span> proved that money could exist without banks.</p>
+
+      <p>Twelve years later, on <span class="hl-orange" data-hint="24-nov-2021">a quieter day in November</span>, another faceless protocol carved its name into <span class="hl" data-hint="block-710968">Bitcoin block #710,968</span>, embedding its hash deep into the chain of time. No press release. No ICO. No CEO. Just <span class="hl-orange" data-hint="zenon-genesis">a timestamp</span> that no one could fake. Zenon was born.</p>
+
+      <p>Two protocols. Two revolutions. <span class="hl">One unbroken timeline.</span> Bitcoin gave us money without banks. Zenon gave us a network without owners. The orange of one, the green of the other, and now, the alien that carries them both forward.</p>
+
+      <p><span class="hl">ZB is the bridge between them.</span> An alien economy where the green of Zenon meets the orange of Bitcoin. A token forged not by a corporation, but by a community of believers, anons, misfits, dreamers, cypherpunks. Those who never asked permission to be free.</p>
+
+      <p>We are not building a product. We are building a <span class="hl-orange">parallel world</span>, a galaxy where value flows freely between players, creators, and machines. Where every transaction is final. Where every voice is equal. Where no one, no government, no platform, no overlord, can pull the plug.</p>
+
+      <p class="break-large">
+        <span class="orange">// THE NETWORK IS THE NATION.</span><br>
+        <span class="orange">// THE CODE IS THE LAW.</span><br>
+        <span class="orange">// THE ALIENS HAVE LANDED.</span>
+      </p>
+
+      <p class="hidden-clue">
+        <span class="dim">// fragment recovered from /dev/null:</span><br>
+        <span class="cipher">"the chancellor was on the brink of a second bailout. twelve years later, on the night of november 23rd at 11:01:13 UTC, a hash was carved into the orange chain. twenty-five hours later, the green network awoke. follow the pillar. block one was just the beginning. block 710,968 was the answer."</span>
+      </p>
+
+      <p class="signature">
+        ~ <span class="hl">we are anonymous.</span> we are many. we are <span class="hl-orange">ZB</span>.<br>
+        <span class="dim" style="font-size: 11px; letter-spacing: 1px;">// extradata::6a4b...c0de, those who know, know.</span><br>
+        <span class="dim" style="font-size: 10px; letter-spacing: 4px; color: rgba(255,140,26,0.4);">// signal_count :: 3 .. 2 .. 1 .. //</span>
+      </p>
+    </div>
+
+    <div class="principles-block">
+      <div class="principles-header">
+        <span class="orange">&gt;</span> PROTOCOL_DIRECTIVES.cfg
+      </div>
+
+      <div class="principles-grid">
+        <div class="principle">
+          <div class="principle-num">[ 01 ]</div>
+          <div class="principle-title">DECENTRALIZE EVERYTHING</div>
+          <div class="principle-desc">No CEO. No company. No single point of failure. The network governs itself.</div>
+        </div>
+        <div class="principle">
+          <div class="principle-num">[ 02 ]</div>
+          <div class="principle-title">TRUST THE CODE</div>
+          <div class="principle-desc">Smart contracts replace handshakes. Math replaces middlemen. Code is law.</div>
+        </div>
+        <div class="principle">
+          <div class="principle-num">[ 03 ]</div>
+          <div class="principle-title">OWN YOUR KEYS</div>
+          <div class="principle-desc">Not your keys, not your coins. Self-custody is the only sovereignty.</div>
+        </div>
+        <div class="principle">
+          <div class="principle-num">[ 04 ]</div>
+          <div class="principle-title">FAIR LAUNCH ONLY</div>
+          <div class="principle-desc">No pre-mine. No insider allocation. No VCs. The community is the founder.</div>
+        </div>
+        <div class="principle">
+          <div class="principle-num">[ 05 ]</div>
+          <div class="principle-title">PRIVACY IS A RIGHT</div>
+          <div class="principle-desc">An anonymous transaction is a free transaction. We protect what we build.</div>
+        </div>
+        <div class="principle">
+          <div class="principle-num">[ 06 ]</div>
+          <div class="principle-title">BUILD IN THE OPEN</div>
+          <div class="principle-desc">Open source. Open chains. Open future. The galaxy belongs to no one.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== TOKEN SECTION ==================== -->
+
+  </main>
+
+  <footer class="subpage-footer">
+    <div class="links">
+      <a href="https://x.com/ZBTOKENOfficial" target="_blank" rel="noopener">X</a>
+      <a href="https://t.me/ZBTOKENOfficial" target="_blank" rel="noopener">TELEGRAM</a>
+      <a href="https://zenon.tools/tokens/zts13sl7jccgrflw7u9rfsvzp7" target="_blank" rel="noopener">EXPLORER</a>
+      <a href="https://zenon.network" target="_blank" rel="noopener">ZENON</a>
+    </div>
+    <a href="index.html" class="back-link">← RETURN_TO_HUB</a>
+    <div class="signature">// extradata::6a4b...c0de, those who know, know.</div>
+  </footer>
+
+  <script>
+    // Copy contract functions for token page (and others if needed)
+    function copyContract() {
+      var addr = 'zts13sl7jccgrflw7u9rfsvzp7';
+      var copyText = document.getElementById('copy-text');
+      if (copyText && navigator.clipboard) {
+        navigator.clipboard.writeText(addr).then(function() {
+          copyText.textContent = 'COPIED ✓';
+          setTimeout(function() { copyText.textContent = 'COPY'; }, 2000);
+        });
+      }
+    }
+    function copyFinalContract() {
+      var addr = 'zts13sl7jccgrflw7u9rfsvzp7';
+      var copyText = document.getElementById('final-copy-text');
+      if (copyText && navigator.clipboard) {
+        navigator.clipboard.writeText(addr).then(function() {
+          copyText.textContent = 'COPIED ✓';
+          setTimeout(function() { copyText.textContent = 'COPY_CONTRACT'; }, 2000);
+        });
+      }
+    }
+  </script>
+
+<script src="effects.js"></script>
+<script src="zb-menu.js"></script>
+</body>
+</html>

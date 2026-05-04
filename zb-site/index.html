@@ -409,10 +409,33 @@
 
   <!-- Video background -->
   <div class="video-bg">
-    <video autoplay muted loop playsinline preload="auto">
+    <video autoplay muted loop playsinline webkit-playsinline preload="auto" disablepictureinpicture x5-playsinline x5-video-player-type="h5" x5-video-player-fullscreen="false">
       <source src="zbtoken-intro.mp4" type="video/mp4">
     </video>
   </div>
+
+  <!-- Force play video on mobile -->
+  <script>
+    (function() {
+      const video = document.querySelector('.video-bg video');
+      if (!video) return;
+      
+      // Try to play immediately
+      const playPromise = video.play();
+      if (playPromise !== undefined) {
+        playPromise.catch(() => {
+          // Autoplay blocked - try on first user interaction
+          const playOnInteraction = () => {
+            video.play().catch(() => {});
+            document.removeEventListener('touchstart', playOnInteraction);
+            document.removeEventListener('click', playOnInteraction);
+          };
+          document.addEventListener('touchstart', playOnInteraction, { once: true });
+          document.addEventListener('click', playOnInteraction, { once: true });
+        });
+      }
+    })();
+  </script>
 
   <!-- ==================== HERO SECTION ==================== -->
   <div class="hero-wrapper">
